@@ -1,0 +1,45 @@
+/* @import url(../abstract/variables.css); */
+
+html {
+  font-size: 62.5%;
+  font-family: var(--font-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titles);
+}
+
+h1,
+h2,
+li[role="menu"] {
+  font-size: var(--headline-4-fs);
+  line-height: var(--large-lh);
+}
+
+h3 {
+  font-size: var(--headline-5-and-body-fs);
+  line-height: var(--normal-lh);
+}
+
+p,
+li:not([role="menu"]) {
+  font-size: var(--body-2-fs);
+  line-height: var(--largest-lh);
+}
+
+[hidden] {
+  display: none;
+}
+
+button {
+  font-size: var(--button-fs);
+  line-height: var(--larger-lh);
+  font-family: var(--font-titles);
+  font-weight: bold;
+  border-radius: 3px;
+}

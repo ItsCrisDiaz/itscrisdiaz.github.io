@@ -1,0 +1,9 @@
+.wrapper {
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  width: 100%;
+  max-width: 160rem;
+  margin-left: auto;
+  margin-right: auto;
+}

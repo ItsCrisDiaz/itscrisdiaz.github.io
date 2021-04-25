@@ -1,0 +1,12 @@
+.projects {
+  padding: 4rem 2rem;
+  color: var(--background-color);
+}
+
+.projects .wrapper {
+  --vertical-flow-space: 4rem;
+}
+
+.projects .description {
+  --vertical-flow-space: 1rem;
+}

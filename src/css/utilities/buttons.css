@@ -1,0 +1,18 @@
+.button-normal {
+  background-color: var(--button-color);
+  padding: 1.2rem 2.4rem;
+  color: var(--button-text);
+  border: none;
+}
+
+.button-normal:focus,
+.button-normal:hover {
+  background-color: var(--button-text);
+  color: var(--button-color);
+}
+
+.button-black-border {
+  background-color: transparent;
+  padding: 1.2rem 4rem;
+  border: 2px solid var(--background-color);
+}

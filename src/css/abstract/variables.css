@@ -1,0 +1,29 @@
+:root {
+  /* Colors */
+  --background-color: hsl(247, 24%, 7%);
+  --secondary-color: hsl(7, 86%, 62%);
+  --tertiary-color: hsl(339, 78%, 55%);
+  --button-color: hsl(32, 100%, 51%);
+  --button-text: hsl(0, 0%, 100%);
+  --headline-text: hsl(0, 0%, 100%);
+  --paragraph: hsl(235, 15%, 70%);
+  --black: hsl(0, 0%, 0%);
+  /* Font families */
+  --font-titles: "Nunito", sans-serif;
+  --font-text: "Roboto", sans-serif;
+  /* Font sizes */
+  --headline-1-fs: 6.4rem;
+  --headline-2-fs: 4.8rem;
+  --headline-3-fs: 4rem;
+  --headline-4-fs: 3.2rem;
+  --headline-5-and-body-fs: 2.4rem;
+  --body-2-fs: 2rem;
+  --button-fs: 1.6rem;
+  --caption-fs: 1.2rem;
+  /* Line heights */
+  --normal-lh: 1.2;
+  --small-lh: 1.16;
+  --large-lh: 1.25;
+  --larger-lh: 1.5;
+  --largest-lh: 1.6;
+}
