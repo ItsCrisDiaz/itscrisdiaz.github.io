@@ -11,3 +11,8 @@
   --icon-size: 5.6rem;
   background-image: url(/src/img/icons/arrow-down.png);
 }
+
+.left-arrow {
+  background-image: url(/src/img/icons/arrow-right.png);
+  vertical-align: text-bottom;
+}
