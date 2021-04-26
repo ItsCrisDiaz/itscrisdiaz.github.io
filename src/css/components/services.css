@@ -1,3 +1,16 @@
 .services {
   padding: 4rem 2rem;
 }
+
+.services h2 {
+  margin-bottom: 3.2rem;
+}
+
+.service-container {
+  width: 100%;
+  max-width: 39.2rem;
+}
+
+.service-container:not(:nth-of-type(1)) {
+  margin-top: 5.6rem;
+}

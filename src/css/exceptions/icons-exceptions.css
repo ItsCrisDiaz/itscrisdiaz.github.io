@@ -1,0 +1,4 @@
+.left-arrow[data-color="orange"] {
+  background-image: url(/src/img/icons/orange-arrow-right.png);
+  vertical-align: text-bottom;
+}

@@ -35,6 +35,7 @@
 }
 
 .button-container > .button-normal {
+  display: block;
   width: 100%;
   max-width: 32rem;
   margin-left: auto;
