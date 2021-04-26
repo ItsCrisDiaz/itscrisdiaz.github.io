@@ -1,0 +1,10 @@
+.button-normal[data-reversed="true"] {
+  background-color: transparent;
+  color: var(--button-color);
+}
+
+.button-normal[data-reversed="true"]:focus,
+.button-normal[data-reversed="true"]:hover {
+  border: 2px solid var(--button-text);
+  color: var(--button-text);
+}
