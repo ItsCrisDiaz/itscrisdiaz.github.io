@@ -27,9 +27,16 @@ h3 {
 }
 
 p,
-li:not([role="menu"]) {
+li:not([role="menu"]),
+input,
+textarea {
   font-size: var(--body-2-fs);
   line-height: var(--largest-lh);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--background-color);
 }
 
 [hidden] {
