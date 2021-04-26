@@ -34,6 +34,10 @@ textarea {
   line-height: var(--largest-lh);
 }
 
+a {
+  text-decoration: none;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: var(--background-color);

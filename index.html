@@ -22,17 +22,18 @@
     <header class="header | black-bg">
       <section class="wrapper">
         <div class="container | flow">
-          <button class="hamburger | pointer" type="button">
+          <button class="hamburger | pointer | hamburger--stand" type="button">
             <span class="hamburger-box">
               <span class="hamburger-inner"></span>
             </span>
           </button>
           <img src="./src/img/images/logo.png" alt="Logo" />
-          <ul class="menu | flow" role="menu" hidden>
-            <li role="menu">Hola</li>
-            <li role="menu">Portafolio</li>
-            <li role="menu">Testimonios</li>
-            <li role="menu">Contacto</li>
+          <ul class="menu | flow" role="menu">
+            <li role="menu"><a href="#about">Hola</a></li>
+            <li role="menu"><a href="#projects">Portafolio</a></li>
+            <li role="menu"><a href="#services">Servicios</a></li>
+            <li role="menu"><a href="#testimonials">Testimonios</a></li>
+            <li role="menu"><a href="#contact">Contacto</a></li>
           </ul>
         </div>
         <button class="button-normal | pointer" type="button">
@@ -40,7 +41,7 @@
         </button>
       </section>
     </header>
-    <main class="hero | black-bg">
+    <main class="hero | black-bg" id="about">
       <section class="wrapper | flow">
         <img
           src="./src/img/images/photo.png"
@@ -56,7 +57,7 @@
         </div>
       </section>
     </main>
-    <section class="projects">
+    <section class="projects" id="projects">
       <section class="wrapper | flow">
         <section class="description | flow">
           <h2>Parece magia, funciona con código.</h2>
@@ -117,7 +118,7 @@
         </button>
       </section>
     </section>
-    <section class="services | gradient-bg">
+    <section class="services | gradient-bg" id="services">
       <section class="wrapper">
         <h2>Servicios</h2>
         <section class="service-container | flow">
@@ -163,7 +164,7 @@
         </section>
       </section>
     </section>
-    <section class="testimonials | black-bg">
+    <section class="testimonials | black-bg" id="testimonials">
       <section class="wrapper | flow">
         <h2>Testimonios</h2>
         <section class="testimonials-grid">
@@ -191,7 +192,7 @@
         </picture>
       </section>
     </section>
-    <section class="contact | gradient-bg">
+    <section class="contact | gradient-bg" id="contact">
       <article class="black-bg | flow">
         <h2>Contacto</h2>
         <p>
@@ -245,4 +246,5 @@
       </div>
     </footer>
   </body>
+  <script type="module" src="./src/js/main.js"></script>
 </html>

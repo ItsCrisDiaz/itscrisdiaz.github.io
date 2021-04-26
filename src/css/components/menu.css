@@ -1,0 +1,31 @@
+.menu {
+  --vertical-flow-space: 3.4rem;
+  --horizontal-flow-space: 0;
+  position: absolute;
+  top: 8.8rem;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 8.8rem);
+  margin: 0;
+  padding: 3.2rem 0 0 2rem;
+  background-color: var(--menu-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease-out;
+}
+
+.menu.active {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.15s ease-in;
+}
+
+.menu a {
+  color: var(--headline-text);
+  transition: color 2s;
+}
+
+.menu a:hover {
+  color: var(--button-color);
+  font-weight: bold;
+}
