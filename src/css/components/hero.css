@@ -19,4 +19,5 @@
 .hero img {
   width: 100%;
   max-width: 49.5rem;
+  border-radius: 50%;
 }

@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding: 2rem;
   height: 8.8rem;
+  z-index: 2;
 }
 
 .header .container {

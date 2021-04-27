@@ -21,11 +21,28 @@
     margin-top: 0;
   }
 
+  @keyframes move-animation {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(50%);
+    }
+  }
+
+  .hero .down-arrow {
+    animation-duration: 2s;
+    animation-name: move-animation;
+    animation-iteration-count: infinite;
+    z-index: 1;
+  }
+
   /* Projects block */
 
   .projects .description {
     --vertical-flow-space: 0;
-    --horizontal-flow-space: 2rem;
+    --horizontal-flow-space: 0;
     display: flex;
     justify-content: center;
   }

@@ -12,6 +12,7 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.15s ease-out;
+  z-index: 2;
 }
 
 .menu.active {
