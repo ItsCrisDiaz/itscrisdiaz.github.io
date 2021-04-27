@@ -9,6 +9,7 @@
 
 .hero p {
   color: var(--paragraph);
+  max-width: 45ch;
 }
 
 .hero div {

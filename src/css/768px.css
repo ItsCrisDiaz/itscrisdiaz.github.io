@@ -1,0 +1,42 @@
+@media screen and (min-width: 768px) {
+  /* BLOCKS */
+
+  /* Hero block */
+
+  .hero .wrapper {
+    --vertical-flow-space: 0rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero img {
+    width: 48%;
+    order: 1;
+    margin-right: 0;
+    margin-left: 2.4rem;
+  }
+
+  .hero div {
+    width: 48%;
+    margin-top: 0;
+  }
+
+  /* Projects block */
+
+  .projects .description {
+    --vertical-flow-space: 0;
+    --horizontal-flow-space: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .projects .description h2 {
+    max-width: 18ch;
+    width: 48%;
+  }
+
+  .projects .description p {
+    width: 48%;
+    max-width: 35ch;
+  }
+}

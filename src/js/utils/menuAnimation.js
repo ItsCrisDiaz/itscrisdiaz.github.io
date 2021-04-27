@@ -18,12 +18,7 @@ export const menuAnimation = function () {
     element.addEventListener("click", function () {
       HAMBURGER_BUTTON.classList.toggle("active");
       MENU_CONTAINER.classList.toggle("active");
-
-      if (HAMBURGER_BUTTON.classList.contains("is-active")) {
-        HTML[0].style.overflow = "hidden";
-      } else {
-        HTML[0].style.overflow = "visible";
-      }
+      HTML[0].style.overflow = "visible";
     });
   });
 };

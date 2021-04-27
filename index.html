@@ -9,7 +9,17 @@
     <link
       rel="stylesheet"
       href="./src/css/768px.css"
-      media="screen and (min-width: 768px)"
+      media="(min-width: 768px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./src/css/1024px.css"
+      media="(min-width: 1024px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./src/css/1366px.css"
+      media="(min-width: 1366px)"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -121,46 +131,48 @@
     <section class="services | gradient-bg" id="services">
       <section class="wrapper">
         <h2>Servicios</h2>
-        <section class="service-container | flow">
-          <h3>Diseño</h3>
-          <p>Interfaz de usuario</p>
-          <p>Aplicaciones web</p>
-          <button
-            class="button-black-border"
-            data-reversed="true"
-            type="button"
-          >
-            Ver servicios de diseño
-            <span class="icon | left-arrow" data-color="orange"></span>
-          </button>
-        </section>
-        <section class="service-container | flow">
-          <h3>Desarrollo</h3>
-          <p>Landing pages</p>
-          <p>Aplicaciones web</p>
-          <p>Responsive design</p>
-          <p>Optimización para motores de búsqueda</p>
-          <button
-            class="button-black-border"
-            data-reversed="true"
-            type="button"
-          >
-            Ver servicios de desarrollo
-            <span class="icon | left-arrow" data-color="orange"></span>
-          </button>
-        </section>
-        <section class="service-container | flow">
-          <h3>Marca</h3>
-          <p>Identidad de marca</p>
-          <p>Servicio de marca</p>
-          <button
-            class="button-black-border"
-            data-reversed="true"
-            type="button"
-          >
-            Ver servicios de marca
-            <span class="icon | left-arrow" data-color="orange"></span>
-          </button>
+        <section class="services-wrapper">
+          <article class="service-container | flow">
+            <h3>Diseño</h3>
+            <p>Interfaz de usuario</p>
+            <p>Aplicaciones web</p>
+            <button
+              class="button-black-border"
+              data-reversed="true"
+              type="button"
+            >
+              Ver servicios de diseño
+              <span class="icon | left-arrow" data-color="orange"></span>
+            </button>
+          </article>
+          <article class="service-container | flow">
+            <h3>Desarrollo</h3>
+            <p>Landing pages</p>
+            <p>Aplicaciones web</p>
+            <p>Responsive design</p>
+            <p>Optimización para motores de búsqueda</p>
+            <button
+              class="button-black-border"
+              data-reversed="true"
+              type="button"
+            >
+              Ver servicios de desarrollo
+              <span class="icon | left-arrow" data-color="orange"></span>
+            </button>
+          </article>
+          <article class="service-container | flow">
+            <h3>Marca</h3>
+            <p>Identidad de marca</p>
+            <p>Servicio de marca</p>
+            <button
+              class="button-black-border"
+              data-reversed="true"
+              type="button"
+            >
+              Ver servicios de marca
+              <span class="icon | left-arrow" data-color="orange"></span>
+            </button>
+          </article>
         </section>
       </section>
     </section>
@@ -236,7 +248,7 @@
     <footer class="footer | black-bg | flow">
       <img src="./src/img/images/logo.png" alt="Logo" />
       <div class="text-container | flow">
-        <p>Hecho con <span class="icon | heart"></span> de Cristian</p>
+        <p>Hecho con <span class="icon | heart"></span> de Cristian.</p>
         <p>Copyright 2021 - Todos los derechos reservados.</p>
       </div>
       <div class="icon-container | flow">
