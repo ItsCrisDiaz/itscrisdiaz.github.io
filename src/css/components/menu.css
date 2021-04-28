@@ -23,7 +23,7 @@
 
 .menu a {
   color: var(--headline-text);
-  transition: color 2s;
+  transition: color 0.2s;
 }
 
 .menu a:hover {
