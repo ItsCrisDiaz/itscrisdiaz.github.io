@@ -1,0 +1,78 @@
+@media screen and (min-width: 768px) {
+  // Hero block
+
+  .hero {
+    & .wrapper {
+      --vertical-flow-space: 0rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-img {
+      width: 48%;
+      order: 1;
+      margin-right: 0;
+      margin-left: 2.4rem;
+    }
+
+    & div {
+      width: 48%;
+      margin-top: 0;
+    }
+
+    & .down-arrow {
+      animation-duration: 2s;
+      animation-name: move-animation;
+      animation-iteration-count: infinite;
+      z-index: 1;
+    }
+  }
+
+  @keyframes move-animation {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(50%);
+    }
+  }
+
+  // Projects block
+
+  .projects {
+    & .description {
+      --vertical-flow-space: 0;
+      --horizontal-flow-space: 1.6rem;
+      display: flex;
+      justify-content: center;
+
+      & h2 {
+        max-width: 18ch;
+        width: 48%;
+      }
+
+      & p {
+        width: 48%;
+        max-width: 35ch;
+      }
+    }
+  }
+
+  .button-container {
+    --vertical-flow-space: 0;
+    margin-top: 4.8rem;
+
+    & .button-normal {
+      display: inline;
+      width: auto;
+      max-width: 32rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    & > a:nth-of-type(2) {
+      margin-left: 1.5rem;
+    }
+  }
+}

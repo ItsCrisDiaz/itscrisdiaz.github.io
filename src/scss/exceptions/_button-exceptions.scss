@@ -1,0 +1,22 @@
+.button-normal[data-reversed="true"] {
+  background-color: transparent;
+  color: var(--button-color);
+
+  &:focus,
+  &:hover {
+    border: 2px solid var(--button-text);
+    color: var(--button-text);
+  }
+}
+
+.button-black-border[data-reversed="true"] {
+  background-color: var(--background-color);
+  color: var(--button-color);
+  padding: 1.2rem 2.4rem;
+
+  &:focus,
+  &:hover {
+    border: 2px solid var(--button-text);
+    color: var(--button-text);
+  }
+}

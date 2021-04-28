@@ -1,0 +1,21 @@
+.header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 8.8rem;
+  z-index: 2;
+
+  & .container {
+    --vertical-flow-space: 0;
+    --horizontal-flow-space: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  & img {
+    height: 3rem;
+  }
+}

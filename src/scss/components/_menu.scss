@@ -13,20 +13,20 @@
   transform-origin: left;
   transition: transform 0.15s ease-out;
   z-index: 2;
-}
 
-.menu.active {
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: transform 0.15s ease-in;
-}
+  &.active {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.15s ease-in;
+  }
 
-.menu a {
-  color: var(--headline-text);
-  transition: color 0.2s;
-}
+  & a {
+    color: var(--headline-text);
+    transition: color 0.2s;
+  }
 
-.menu a:hover {
-  color: var(--button-color);
-  font-weight: bold;
+  & a:hover {
+    color: var(--button-color);
+    font-weight: bold;
+  }
 }

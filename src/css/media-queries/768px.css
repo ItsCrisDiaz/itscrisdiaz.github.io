@@ -1,36 +1,19 @@
 @media screen and (min-width: 768px) {
-  /* BLOCKS */
-
-  /* Hero block */
-
   .hero .wrapper {
     --vertical-flow-space: 0rem;
     display: flex;
     justify-content: center;
   }
-
   .hero-img {
     width: 48%;
     order: 1;
     margin-right: 0;
     margin-left: 2.4rem;
   }
-
   .hero div {
     width: 48%;
     margin-top: 0;
   }
-
-  @keyframes move-animation {
-    from {
-      transform: translateY(0);
-    }
-
-    to {
-      transform: translateY(50%);
-    }
-  }
-
   .hero .down-arrow {
     animation-duration: 2s;
     animation-name: move-animation;
@@ -38,25 +21,33 @@
     z-index: 1;
   }
 
-  /* Projects block */
-
+  @keyframes move-animation {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(50%);
+    }
+  }
   .projects .description {
     --vertical-flow-space: 0;
     --horizontal-flow-space: 1.6rem;
     display: flex;
     justify-content: center;
   }
-
   .projects .description h2 {
     max-width: 18ch;
     width: 48%;
   }
-
   .projects .description p {
     width: 48%;
     max-width: 35ch;
   }
 
+  .button-container {
+    --vertical-flow-space: 0;
+    margin-top: 4.8rem;
+  }
   .button-container .button-normal {
     display: inline;
     width: auto;
@@ -64,13 +55,9 @@
     margin-left: 0;
     margin-right: 0;
   }
-
-  .button-container {
-    --vertical-flow-space: 0;
-    margin-top: 4.8rem;
-  }
-
   .button-container > a:nth-of-type(2) {
     margin-left: 1.5rem;
   }
 }
+
+/*# sourceMappingURL=768px.css.map */

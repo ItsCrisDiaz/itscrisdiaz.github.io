@@ -1,5 +1,5 @@
 @media screen and (min-width: 1024px) {
-  /* Global styles */
+  // GLOBAL STYLES
 
   h1 {
     font-size: var(--headline-1-fs);
@@ -22,11 +22,15 @@
     line-height: var(--largest-lh);
   }
 
+  // BLOCKS
+
+  // Header block
+
   .header {
     position: static;
   }
 
-  /* Menu block */
+  // Menu block
 
   .menu {
     --vertical-flow-space: 0;
@@ -41,13 +45,13 @@
     height: 100%;
   }
 
-  /* Hamburger-button block */
+  // Hamburger-button block
 
   .hamburger {
     display: none;
   }
 
-  /* Projects block */
+  // Projects block
 
   .project-text h2 {
     font-size: var(--headline-4-fs);
@@ -60,7 +64,7 @@
     align-items: stretch;
   }
 
-  /* Project-card block */
+  // Project-card block
 
   .project-text {
     display: flex;
@@ -68,52 +72,57 @@
     justify-content: space-between;
   }
 
-  /* Services block */
+  // Services block
 
-  .services h2 {
-    text-align: left;
+  .services {
+    & h2 {
+      text-align: left;
+    }
+
+    &-wrapper {
+      display: flex;
+    }
   }
 
-  .services-wrapper {
-    display: flex;
+  .service-container {
+    & button {
+      margin-left: 0;
+    }
+
+    &:not(:nth-of-type(1)) {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
   }
 
-  .service-container:not(:nth-of-type(1)) {
-    margin-top: 0;
-    margin-left: 2rem;
-  }
-
-  .service-container button {
-    margin-left: 0;
-  }
-
-  /* Contact block */
+  // Contact block
 
   .contact article {
     padding: 4.8rem;
   }
 
-  /* Footer block */
+  // Footer block
+
   .footer {
     --vertical-flow-space: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  .footer img {
-    width: 4rem;
-    margin-left: 0;
-    margin-right: 0;
-  }
+    &-logo {
+      width: 4rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
 
-  .footer .text-container {
-    display: flex;
-  }
+    & .text-container {
+      display: flex;
 
-  .footer .text-container p {
-    --horizontal-flow-space: 1rem;
-    font-size: var(--body-2-fs);
+      & p {
+        --horizontal-flow-space: 1rem;
+        font-size: var(--body-2-fs);
+      }
+    }
   }
 
   .icon-container {

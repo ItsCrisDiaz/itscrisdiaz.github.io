@@ -1,0 +1,24 @@
+.hero {
+  padding: 2rem;
+  color: var(--headline-text);
+
+  & .wrapper {
+    --vertical-flow-space: 2.4rem;
+  }
+
+  & p {
+    color: var(--paragraph);
+    max-width: 45ch;
+  }
+
+  & div {
+    --vertical-flow-space: 1.6rem;
+  }
+
+  &-img {
+    width: 100%;
+    height: auto;
+    max-width: 49.5rem;
+    border-radius: 50%;
+  }
+}
