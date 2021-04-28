@@ -72,8 +72,8 @@ textarea::placeholder {
   color: var(--background-color);
 }
 
-[hidden] {
-  display: none;
+*[hidden] {
+  display: none !important;
 }
 
 button,
