@@ -5,8 +5,9 @@
   text-align: center;
 }
 
-.footer img {
+.footer-logo {
   width: 6rem;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }

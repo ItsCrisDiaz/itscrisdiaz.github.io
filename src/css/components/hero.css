@@ -16,8 +16,9 @@
   --vertical-flow-space: 1.6rem;
 }
 
-.hero img {
+.hero-img {
   width: 100%;
+  height: auto;
   max-width: 49.5rem;
   border-radius: 50%;
 }

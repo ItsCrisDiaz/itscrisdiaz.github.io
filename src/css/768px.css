@@ -9,7 +9,7 @@
     justify-content: center;
   }
 
-  .hero img {
+  .hero-img {
     width: 48%;
     order: 1;
     margin-right: 0;
@@ -42,7 +42,7 @@
 
   .projects .description {
     --vertical-flow-space: 0;
-    --horizontal-flow-space: 0;
+    --horizontal-flow-space: 1.6rem;
     display: flex;
     justify-content: center;
   }

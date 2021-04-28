@@ -9,7 +9,6 @@
 
 .down-arrow {
   --icon-size: 5.6rem;
-  background-image: url(/src/img/icons/arrow-down.png);
 }
 
 .left-arrow {
@@ -20,16 +19,4 @@
 .heart {
   background-image: url(/src/img/icons/heart.png);
   vertical-align: -0.6rem;
-}
-
-.github {
-  background-image: url(/src/img/icons/icon-github.png);
-}
-
-.linkedin {
-  background-image: url(/src/img/icons/linkedin-logo.png);
-}
-
-.twitter {
-  background-image: url(/src/img/icons/twitter-icon.png);
 }
