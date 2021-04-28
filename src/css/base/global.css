@@ -45,7 +45,8 @@ textarea::placeholder {
   display: none;
 }
 
-button {
+button,
+a[type="button"] {
   font-size: var(--button-fs);
   line-height: var(--larger-lh);
   font-family: var(--font-titles);
