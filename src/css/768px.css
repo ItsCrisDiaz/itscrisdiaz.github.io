@@ -56,4 +56,21 @@
     width: 48%;
     max-width: 35ch;
   }
+
+  .button-container .button-normal {
+    display: inline;
+    width: auto;
+    max-width: 32rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .button-container {
+    --vertical-flow-space: 0;
+    margin-top: 4.8rem;
+  }
+
+  .button-container > a:nth-of-type(2) {
+    margin-left: 1.5rem;
+  }
 }
