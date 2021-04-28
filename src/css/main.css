@@ -542,6 +542,15 @@ a[type="button"] {
 }
 
 /*
+*Banner block
+*/
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+/*
 *Contact block
 */
 
