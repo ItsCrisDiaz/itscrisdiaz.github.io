@@ -437,6 +437,7 @@ a[type="button"] {
   grid-row: 1 / 3;
   grid-column: 2 / 4;
   width: 100%;
+  height: auto;
 }
 
 .project-text {
