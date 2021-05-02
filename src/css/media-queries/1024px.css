@@ -10,7 +10,8 @@
 
   p,
 input,
-textarea {
+textarea,
+label {
     font-size: var(--headline-5-and-body-fs);
     line-height: var(--largest-lh);
   }

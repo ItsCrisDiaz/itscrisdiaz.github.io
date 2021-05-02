@@ -15,6 +15,10 @@
     max-width: 55rem;
   }
 
+  & input:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+
   & input,
   & textarea {
     width: 100%;
