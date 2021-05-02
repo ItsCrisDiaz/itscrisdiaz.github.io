@@ -347,6 +347,7 @@ a[type=button] {
   grid-template-rows: repeat(2, 16rem) auto;
   width: 100%;
   max-width: 58rem;
+  overflow-y: hidden;
 }
 .project-card img {
   grid-row: 1/3;
