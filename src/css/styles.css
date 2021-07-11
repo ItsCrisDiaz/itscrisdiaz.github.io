@@ -401,12 +401,12 @@ a[type=button] {
   margin-top: 5.6rem;
 }
 
-.testimonials {
+.blog {
   --vertical-flow-space: 2.4rem;
   padding: 4rem 2rem;
   color: var(--headline-text);
 }
-.testimonials-grid {
+.blog-grid {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 2.4rem;
@@ -417,22 +417,22 @@ a[type=button] {
   max-width: 140rem;
 }
 
-.testimonial-card {
+.blog-entry {
   --vertical-flow-space: 2.4rem;
   max-width: 39.2rem;
 }
-.testimonial-card img {
+.blog-entry img {
   width: 4.8rem;
   height: 4.8rem;
   border-radius: 50%;
 }
-.testimonial-card div {
+.blog-entry div {
   --vertical-flow-space: 0;
   --horizontal-flow-space: 1rem;
   display: flex;
   align-items: center;
 }
-.testimonial-card h3 {
+.blog-entry h3 {
   color: var(--secondary-color);
 }
 
