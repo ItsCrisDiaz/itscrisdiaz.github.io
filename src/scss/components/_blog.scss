@@ -6,6 +6,8 @@
   &-grid {
     display: grid;
     grid-template-columns: 1fr;
+    place-items: center;
+    grid-auto-flow: row;
     row-gap: 2.4rem;
     justify-content: center;
     margin-left: auto;

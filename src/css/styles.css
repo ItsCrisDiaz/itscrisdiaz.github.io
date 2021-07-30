@@ -410,6 +410,8 @@ a[type=button] {
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
+  place-items: center;
+  grid-auto-flow: row;
   row-gap: 2.4rem;
   justify-content: center;
   margin-left: auto;
@@ -419,25 +421,31 @@ a[type=button] {
 }
 
 .blog-card {
-  --vertical-flow-space: 2.4rem;
-  max-width: 39.2rem;
+  --horizontal-flow-space: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 72.8rem;
   background-color: var(--blog-background-color);
   padding: 2.4rem;
   border-radius: 0.8rem;
 }
+.blog-card figure {
+  max-width: 100%;
+}
 .blog-card img {
-  width: 4.8rem;
-  height: 4.8rem;
-  border-radius: 50%;
+  object-fit: cover;
+  border-radius: 0.8rem;
 }
 .blog-card div {
-  --vertical-flow-space: 0;
-  --horizontal-flow-space: 1rem;
   display: flex;
-  align-items: center;
+  flex-flow: column;
 }
 .blog-card h3 {
   color: var(--secondary-color);
+}
+.blog-card p, .blog-card a {
+  font-size: 1.6rem;
 }
 
 .banner img {

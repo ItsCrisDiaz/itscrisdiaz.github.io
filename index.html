@@ -8,13 +8,14 @@
       name="description"
       content="Portafolio de Cristian Díaz, diseñador web que busca desarrollar experiencias que hagan la vida de los demás más simple."
     />
+    <link rel="canonical" href="https://www.itscrisdiaz.com/">
     <link rel="preload" href="./src/css/styles.css" as="style">
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/styles.css">
     <link
       rel="stylesheet"
       href="./src/css/media-queries/768px.css"
-      media="(min-width: 768px)"
+      media="(min-width: 600px)"
     />
     <link
       rel="stylesheet"
@@ -264,20 +265,17 @@
     <section class="blog | black-bg" id="blog">
       <section class="wrapper | flow">
         <h2>Entradas de blog</h2>
-        <section class="blog-card">
-          <article class="blog-entry | flow">
-            <div class="flow">
-              <img
-                src="./src/img/images/testimonial-1.png"
-                alt="Testimonio de Juan Antonio"
-              />
-              <h3>Juan Antonio</h3>
-            </div>
-            <p>
-              Tengo algunos años trabajando con Javascript y aún así aprendí
-              varias cosas importantes de Antonio y como utiliza Javascript en
-              el día a día.
-            </p>
+        <section class="blog-grid">
+          <article class="blog-card | flow">
+              <figure>
+                <img src="/blog/src/images/conseguir-trabajo-en-tecnologia.jpg" alt="Imagen del artículo de como conseguí trabajo en tecnología">
+              </figure>
+              <div class="flow">
+                <h3>¿Como conseguí mi primer trabajo en tecnología?</h3>
+                <p><em>Publicado en: <time datetime="2021-07-30">Julio 30 de 2021</time></em></p>
+                <p>Encontrar tu primer trabajo en tecnología es difícil, por esto decidí compartir mi experiencia para ayudarte en esta travesía.</p>
+                <a target="_blank" href="blog/conseguir-trabajo-en-tecnologia.html" class="button-normal | pointer" type="button">Leer más</a>
+              </div>
           </article>
         </section>
       </section>

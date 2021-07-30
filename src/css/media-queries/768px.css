@@ -1,3 +1,13 @@
+@media screen and (min-width: 600px) {
+  .blog-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+  .blog-card figure {
+    place-self: center;
+  }
+}
 @media screen and (min-width: 768px) {
   .hero .wrapper {
     --vertical-flow-space: 0rem;
