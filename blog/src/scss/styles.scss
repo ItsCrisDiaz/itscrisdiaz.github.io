@@ -12,6 +12,7 @@
 
 // UTILITIES
 
+@use "../../../src/scss/utilities/sr-only";
 @use "../../../src/scss/utilities/wrapper";
 @use "../../../src/scss/utilities/icons";
 @use "../../../src/scss/utilities/background";
@@ -22,3 +23,4 @@
 
 @use "../../../src/scss/components/header";
 @use "components/blog-entry";
+@use "components/additional-information";

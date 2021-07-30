@@ -1,3 +1,48 @@
+main {
+  background: hsl(0, 0%, 95%);
+  color: hsl(0, 0%, 1%);
+}
+
+h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+h1,
+h2 {
+  max-width: 40ch;
+  font-weight: 900;
+}
+
+h2,
+h3 {
+  font-variant: small-caps;
+}
+
+h3 {
+  font-weight: 800;
+}
+
+p,
+li {
+  line-height: 1.5;
+}
+
+li::marker {
+  font-weight: bold;
+  font-family: var(--font-titles);
+}
+
+.link {
+  text-decoration-color: purple;
+  color: currentColor;
+  text-underline-offset: 1px;
+  text-decoration: underline;
+  color: rebeccapurple;
+}
+
 .header {
   position: static;
   justify-content: center;
@@ -8,8 +53,34 @@
   }
 }
 
+.blog-grid {
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: minmax(25rem, 25%) 1fr;
+  }
+}
+
+.blog-navbar {
+  padding-block-start: 4rem;
+
+  &__list {
+    --vertical-flow-space: 1.6rem;
+    position: sticky;
+    top: 4rem;
+    left: 0;
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
+
+    & a {
+      @media screen and (min-width: 700px) and (max-width: 1024px) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
 .blog-entry {
-  padding: 0 2rem 2rem;
+  padding: 2rem;
   & p,
   & li,
   & h3 {
@@ -18,14 +89,16 @@
 
   &__header {
     position: relative;
-    margin-inline-start: calc(50% - 50vw);
-    margin-inline-end: calc(50% - 50vw);
+    display: grid;
+    place-items: center;
+    gap: 1em;
     padding: 5rem 2rem 3rem;
     background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     isolation: isolate;
+    color: whitesmoke;
 
     &::before {
       position: absolute;
@@ -40,25 +113,13 @@
         rgba(0, 0, 0, 0.3) 10%,
         #000000 100%
       );
+      pointer-events: none;
       z-index: -1;
     }
   }
+}
 
-  & h1 {
-    font-weight: 900;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-  }
-
-  & h1,
-  & h2 {
-    max-width: 40ch;
-  }
-
-  & h2,
-  & h3 {
-    font-variant: small-caps;
-  }
+::selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.99);
 }
