@@ -12,6 +12,10 @@
     margin-left: 0;
   }
 
+  & ul li::marker {
+    color: var(--tertiary-color);
+  }
+
   h3 {
     --padding-right: 2em;
     margin-left: -3rem;

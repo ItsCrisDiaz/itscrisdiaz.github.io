@@ -30,22 +30,19 @@ li {
   line-height: 1.5;
 }
 
-li::marker {
-  font-weight: bold;
-  font-family: var(--font-titles);
-}
-
 strong,
 b {
   color: hsl(32, 100%, 30%);
 }
 
 .link {
-  text-decoration-color: purple;
+  position: relative;
+  display: inline-block;
   color: currentColor;
-  text-underline-offset: 1px;
   text-decoration: underline;
-  color: rebeccapurple;
+  font-style: italic;
+  text-underline-offset: 1px;
+  text-decoration-color: var(--tertiary-color);
 }
 
 .header {
@@ -58,10 +55,55 @@ b {
   }
 }
 
+.footer {
+  @media screen and (min-width: 1024px) {
+    --vertical-flow-space: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      width: 4rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    & .text-container {
+      display: flex;
+
+      & p {
+        --horizontal-flow-space: 1rem;
+        font-size: var(--body-2-fs);
+      }
+    }
+  }
+
+  @media screen and (minx-width: 1366px) {
+    padding: 4.8rem 7.2rem;
+  }
+}
+
 .blog-grid {
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: minmax(25rem, 25%) 1fr;
+  }
+}
+
+.blog-section {
+  --vertical-flow-space: 2em;
+  ul li {
+    &::marker {
+      content: "\f101"" ";
+      display: inline-block;
+      margin-inline-end: 0.5em;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      font-weight: bold;
+      font-family: "Font Awesome 5 Free";
+      color: var(--button-color);
+    }
   }
 }
 
@@ -98,7 +140,7 @@ b {
     place-items: center;
     gap: 1em;
     padding: 5rem 2rem 3rem;
-    background-image: url("../../images/conseguir-trabajo-en-tecnologia-2x.jpg");
+    background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

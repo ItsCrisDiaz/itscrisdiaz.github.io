@@ -10,11 +10,18 @@
     />
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="../src/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>
       ¿Cómo conseguí mi primer trabajo en tecnología? | Cristian Díaz
     </title>
@@ -72,7 +79,7 @@
         <article class="blog-entry | flow">
           <section class="blog-section | flow" id="introduccion">
             <h2 class="sr-only">Introducción</h2>
-            <p>
+            <p data-no-top-margin="true">
               Hace mes y medio encontré mi primer trabajo en tecnología como
               maquetador web después de un proceso de aprendizaje largo y siendo
               empujado a hacerlo por una situación personal compleja. Pude
@@ -96,7 +103,7 @@
               </p>
             </aside>
           </section>
-          <nav aria-labelledby="content-title">
+          <nav class="blog-section | flow" aria-labelledby="content-title">
             <h2 id="content-title">Tabla de contenido</h2>
             <ol>
               <li>
@@ -286,6 +293,7 @@
               con buenas prácticas y que luzcan bien es la mejor señal para
               saber si estás listo o lista para iniciar la búsqueda de trabajo.
             </p>
+            <h3>¿Framework o no framework?</h3>
             <p>
               Mis conocimientos eran en teoría básicos y sin embargo logré
               conseguir un trabajo, lo que lleva a una pregunta que he visto
@@ -421,6 +429,7 @@
                 tus habilidades de añadir interactividad con JavaScript. En mi
                 caso, decidí crear
                 <a
+                  class="link"
                   href="https://itscrisdiaz.github.io/analizador-financiero/"
                   target="_blank"
                   >este analizador financiero</a
@@ -756,6 +765,7 @@
                 la oferta destaquen.
               </li>
             </ul>
+            <h3>Este proceso puede ser más fácil si...</h3>
             <p>
               Ahora entiendes lo que hice para optimizar mis posibilidades con
               las pocas ofertas que encontré, pero no hemos resuelto el problema
@@ -806,6 +816,7 @@
               que te pueda ayudar genera algún nivel de ventaja, y en este
               proceso cada ventaja que obtengas cuenta.
             </p>
+            <h3>Encontrando la oferta ideal</h3>
             <p>
               En mi caso estuve sólo en el proceso, así que hice lo único que
               podía: buscar ofertas hasta por debajo de las piedras si era
@@ -916,6 +927,7 @@
               ellos enviaron, agregar un par de animaciones y usar un par de
               fuentes que ellos pedían, el plazo de entrega era de 2 días.
             </p>
+            <h3>Una prueba técnica ideal</h3>
             <p>
               Se me hizo una prueba fácil y no es como si el desempleo me
               tuviera con algo mejor que hacer, así que la resolví en unas horas
@@ -973,6 +985,7 @@
               última fase: era todo o nada y no iba a dejar perder esta
               oportunidad.
             </p>
+            <h3>¿Cómo actuar en una entrevista laboral?</h3>
             <p>
               Antes de la entrevista (desde el momento que envié mi currículum
               de hecho) me puse a averiguar que hace la empresa: encontré su
@@ -1198,9 +1211,15 @@
             <p>
               Si has llegado hasta acá, muchas gracias por tu atención y si
               quieres saber algo más no dudes en contactarme por mis redes
-              sociales (Twitter es la más efectiva de las tres). Si piensas que
-              hay algo que podría añadirse o alguna imprecisión en lo mencionado
-              ¡no dudes en comentármelo!
+              sociales (<a
+                class="link"
+                href="https://twitter.com/ItsCrisDiaz"
+                target="_blank"
+                >Twitter</a
+              >
+              es la más efectiva de las tres). Si piensas que hay algo que
+              podría añadirse o alguna imprecisión en lo mencionado ¡no dudes en
+              comentármelo!
             </p>
             <p>
               Sin más que decir ¡éxitos en la búsqueda de tu primer empleo que
@@ -1210,5 +1229,23 @@
         </article>
       </div>
     </main>
+    <footer class="footer | black-bg | flow">
+      <img class="footer-logo" src="../src/img/images/logo.png" alt="Logo" width="60" height="60"/>
+      <div class="text-container | flow">
+        <p>Hecho con <span class="icon | heart"></span> de Cristian.</p>
+        <p>Copyright 2021 - Todos los derechos reservados.</p>
+      </div>
+      <div class="icon-container | flow">
+        <a target="_blank" href="https://github.com/ItsCrisDiaz" rel="noopener"
+          ><img alt="Sitio de GitHub de Cristian Díaz" src="../src/img/icons/icon-github.png" width="24" height="24" class="icon"></img
+        ></a>
+        <a target="_blank" href="https://www.linkedin.com/in/crisdiaz384/" rel="noopener"
+          ><img alt="Perfil de LinkedIn de Cristian Díaz" src="../src/img/icons/linkedin-logo.png" width="24" height="24" class="icon"></img
+        ></a>
+        <a target="_blank" href="https://twitter.com/ItsCrisDiaz" rel="noopener"
+          ><img alt="Cuenta de Twiiter de Cristian Díaz" src="../src/img/icons/twitter-icon.png" width="24" height="24" class="icon"></img
+        ></a>
+      </div>
+    </footer>
   </body>
 </html>

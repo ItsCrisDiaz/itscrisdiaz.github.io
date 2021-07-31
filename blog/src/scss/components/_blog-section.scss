@@ -1,0 +1,15 @@
+.blog-section {
+  --vertical-flow-space: 1em;
+  border-block-start: 2px dashed var(--paragraph);
+  padding-block-start: 2em;
+  padding-block-end: 1em;
+
+  p[data-no-top-margin="true"] {
+    margin-top: 0;
+  }
+
+  & > h3 {
+    padding-inline-start: 0.5em;
+    border-inline-start: 5px solid var(--tertiary-color);
+  }
+}
