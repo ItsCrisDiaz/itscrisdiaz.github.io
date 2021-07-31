@@ -238,6 +238,11 @@ li::marker {
   font-family: var(--font-titles);
 }
 
+strong,
+b {
+  color: #995200;
+}
+
 .link {
   text-decoration-color: purple;
   color: currentColor;
@@ -293,7 +298,7 @@ li::marker {
   place-items: center;
   gap: 1em;
   padding: 5rem 2rem 3rem;
-  background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
+  background-image: url("../../images/conseguir-trabajo-en-tecnologia-2x.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -321,20 +326,63 @@ li::marker {
   position: relative;
   padding: 2rem;
   border-radius: 1rem;
-  width: 100%;
-  max-width: 150ch;
-  margin-block: 2em;
+  width: 80%;
+  margin-left: 2em;
   box-shadow: 3px 2px 8px 3px rgba(0, 0, 0, 0.34);
-  background: linear-gradient(135deg, #f9b3aa 0%, var(--aside-color) 100%);
+  background-color: var(--aside-color);
+}
+@media screen and (max-width: 767px) {
+  .additional-information {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 .additional-information h3 {
   --padding-right: 2em;
   margin-left: -3rem;
+  margin-left: -3rem;
+  width: calc(100% + 2rem + 2rem + 2rem);
   display: inline-block;
-  padding: 0.4em var(--padding-right) 0.4em 2rem;
+  padding: 0.4em 2rem 0.4em 2rem;
   background-color: var(--button-color);
-  clip-path: polygon(0 0, calc(100% - var(--padding-right)) 0, 100% 50%, calc(100% - var(--padding-right)) 100%, 0 100%);
-  border-radius: 0.3em 0 0 0.3em;
+  border-radius: 0.3em;
+}
+
+.quote-block,
+.quote-line {
+  font-style: italic;
+}
+
+.quote-block {
+  position: relative;
+  border-inline-start: 5px solid var(--button-color);
+  padding-inline-start: 3em;
+  isolation: isolate;
+  max-width: 140ch;
+}
+.quote-block::before, .quote-block::after {
+  position: absolute;
+  font-size: 14rem;
+  width: 1ch;
+  line-height: 0;
+  font-family: monospace;
+  color: rgba(241, 94, 75, 0.45);
+  z-index: -1;
+}
+.quote-block::before {
+  content: open-quote;
+  top: 0.7ch;
+  left: 2%;
+}
+.quote-block::after {
+  content: close-quote;
+  bottom: 0;
+  right: 2%;
+}
+
+.quote-line {
+  font-weight: bold;
+  color: #995200;
 }
 
 /*# sourceMappingURL=styles.css.map */

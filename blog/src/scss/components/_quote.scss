@@ -1,0 +1,40 @@
+.quote-block,
+.quote-line {
+  font-style: italic;
+}
+
+.quote-block {
+  position: relative;
+  border-inline-start: 5px solid var(--button-color);
+  padding-inline-start: 3em;
+  isolation: isolate;
+  max-width: 140ch;
+
+  &::before,
+  &::after {
+    position: absolute;
+    font-size: 14rem;
+    width: 1ch;
+    line-height: 0;
+    font-family: monospace;
+    color: hsla(7, 86%, 62%, 0.45);
+    z-index: -1;
+  }
+
+  &::before {
+    content: open-quote;
+    top: 0.7ch;
+    left: 2%;
+  }
+
+  &::after {
+    content: close-quote;
+    bottom: 0;
+    right: 2%;
+  }
+}
+
+.quote-line {
+  font-weight: bold;
+  color: hsl(32, 100%, 30%);
+}

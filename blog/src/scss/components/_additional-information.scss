@@ -2,29 +2,24 @@
   position: relative;
   padding: 2rem;
   border-radius: 1rem;
-  width: 100%;
-  max-width: 150ch;
-  margin-block: 2em;
+  width: 80%;
+  margin-left: 2em;
   box-shadow: 3px 2px 8px 3px rgba(0, 0, 0, 0.34);
-  background: linear-gradient(
-    135deg,
-    hsl(7, 86%, 82%) 0%,
-    var(--aside-color) 100%
-  );
+  background-color: var(--aside-color);
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-left: 0;
+  }
 
   h3 {
     --padding-right: 2em;
     margin-left: -3rem;
+    margin-left: -3rem;
+    width: calc(100% + 2rem + 2rem + 2rem);
     display: inline-block;
-    padding: 0.4em var(--padding-right) 0.4em 2rem;
+    padding: 0.4em 2rem 0.4em 2rem;
     background-color: var(--button-color);
-    clip-path: polygon(
-      0 0,
-      calc(100% - var(--padding-right)) 0,
-      100% 50%,
-      calc(100% - var(--padding-right)) 100%,
-      0 100%
-    );
-    border-radius: 0.3em 0 0 0.3em;
+    border-radius: 0.3em;
   }
 }
