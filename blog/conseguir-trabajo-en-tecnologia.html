@@ -46,7 +46,7 @@
         <p>
           <em
             >Publicado el:
-            <time datetime="2021-07-30">Julio 30 de 2021</time></em
+            <time datetime="2021-08-01">Agosto 1 de 2021</time></em
           >
         </p>
       </div>
@@ -75,10 +75,11 @@
               >
             </li>
           </ol>
+          <div class="blog-navbar__shadow"></div>
         </nav>
-        <button class="navbar__button">
-          <span>Tabla de contenido</span>
-          <span class="fas fa-chevron-right" aria-hidden="true" aria-expanded="false"></span>
+        <button class="navbar__button" aria-expanded="true">
+          <span class="title">Tabla de contenido</span>
+          <span class="icon fas fa-chevron-right" aria-hidden="true"></span>
         </button>
         <article class="blog-entry | flow">
           <section class="blog-section | summary" aria-label="Resumen">
@@ -636,7 +637,7 @@
             <p>
               Sé que esto es una sección larga y hay mucho que cubrir, así que
               quiero dejar algo un poco más práctico:
-              <a class="link" href="">en este link</a> van a poder descargar el
+              <a class="link" href="src/files/Cristian Díaz (ES).pdf" target="_blank">en este link</a> van a poder descargar el
               currículum que usé en la búsqueda de este trabajo. No es perfecto,
               pero puede serte de guía.
             </p>
@@ -1207,7 +1208,7 @@
             </aside>
           </section>
           <section class="blog-section | flow" id="para-terminar">
-            <h3>Para terminar</h3>
+            <h2>Para terminar</h3>
             <p>
               Sé que esta entrada de blog ha sido larga (ni yo esperaba que
               fuera así) pero quería ayudar lo mejor que pudiera a quienes están
@@ -1255,4 +1256,5 @@
       </div>
     </footer>
   </body>
+  <script src="/src/js/utils/blogContentAnimation.js"></script>
 </html>

@@ -379,41 +379,47 @@ b {
   margin-block-start: 2rem;
   margin-block-end: 2rem;
 }
-@media screen and (min-width: 700px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .blog-navbar__list a {
     font-size: 1.6rem;
   }
 }
 @media screen and (max-width: 767px) {
   .blog-navbar {
-    display: none;
     position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
     top: 0;
-    right: 20%;
+    left: 0;
+    right: 0;
     bottom: 0;
-    background-color: var(--menu-color);
-    padding-inline: 3rem 2rem;
+    padding: 0;
     z-index: 2;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .blog-navbar.active {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
   }
   .blog-navbar__list {
+    --vertical-flow-space: 0.5em;
     position: static;
+    margin-block-start: 0;
+    padding: 5.5rem 2rem 1rem 1rem;
+    background-color: var(--menu-color);
+    width: 80%;
+    height: 100%;
+    overflow-y: auto;
   }
-  .blog-navbar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -25%;
-    width: 25%;
+  .blog-navbar__list li {
+    padding: 0.8rem 0;
+    cursor: pointer;
+  }
+  .blog-navbar__shadow {
+    width: 20%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-  }
-  .blog-navbar ol {
-    --vertical-flow-space: 0.5em;
-    padding: 0;
-  }
-  .blog-navbar ol li {
-    padding: 1rem 0.5rem;
-    cursor: pointer;
   }
   .blog-navbar .link {
     font-variant: small-caps;
@@ -432,7 +438,7 @@ b {
   .navbar__button {
     position: fixed;
     top: 0.5rem;
-    left: -85%;
+    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -440,24 +446,53 @@ b {
     padding: 0.5em 0.8em;
     font-size: 1.8rem;
     font-family: var(--font-titles);
-    text-transform: capitalize;
     font-weight: 700;
     color: #030303;
     background-color: rgba(241, 94, 75, 0.7);
     border-radius: 0 0.5em 0.5em 0;
     border: 2px solid var(--background-color);
     border-inline-start: none;
+    transform: translateX(-85%);
+    transition: transform 0.3s ease-in-out;
     z-index: 2;
   }
+  .navbar__button.active {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  .navbar__button.active::after {
+    transform: scaleX(1);
+    transition: transform 0.2s ease-in-out;
+    transform-origin: right;
+  }
+  .navbar__button.active .icon {
+    transform: rotate(180deg) translateY(0.5rem);
+    transition: transform 0.3s ease-in-out;
+  }
+  .navbar__button::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background-color: var(--secondary-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.2s ease-in-out;
+  }
 }
-.navbar__button > * {
-  padding: 0.5rem;
+.navbar__button .title {
+  text-transform: uppercase;
+  font-weight: 900;
 }
 .navbar__button .icon {
-  content: "";
-  font-family: "Font Awesome 5 Free";
-  display: inline-block;
   font-size: 2rem;
+  vertical-align: middle;
+  transform: rotate(0) translateY(0);
+  transition: transform 0.3s ease-in-out;
 }
 
 .additional-information {
