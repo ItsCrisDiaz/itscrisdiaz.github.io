@@ -43,6 +43,11 @@ b {
   font-style: italic;
   text-underline-offset: 1px;
   text-decoration-color: var(--tertiary-color);
+
+  &:visited,
+  &:active {
+    color: var(--tertiary-color);
+  }
 }
 
 .header {
@@ -103,25 +108,6 @@ b {
       font-weight: bold;
       font-family: "Font Awesome 5 Free";
       color: var(--button-color);
-    }
-  }
-}
-
-.blog-navbar {
-  padding-block-start: 4rem;
-
-  &__list {
-    --vertical-flow-space: 1.6rem;
-    position: sticky;
-    top: 4rem;
-    left: 0;
-    margin-block-start: 2rem;
-    margin-block-end: 2rem;
-
-    & a {
-      @media screen and (min-width: 700px) and (max-width: 1024px) {
-        font-size: 1.6rem;
-      }
     }
   }
 }

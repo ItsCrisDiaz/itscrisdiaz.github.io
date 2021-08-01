@@ -1,0 +1,62 @@
+.blog-navbar {
+  padding-block-start: 4rem;
+
+  &__list {
+    --vertical-flow-space: 1.6rem;
+    position: sticky;
+    top: 4rem;
+    left: 0;
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
+
+    & a {
+      @media screen and (min-width: 700px) and (max-width: 1024px) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 20%;
+    bottom: 0;
+    background-color: var(--menu-color);
+    padding-inline: 3rem 2rem;
+    z-index: 2;
+
+    &__list {
+      position: static;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -25%;
+      width: 25%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    & ol {
+      --vertical-flow-space: 0.5em;
+      padding: 0;
+
+      & li {
+        padding: 1rem 0.5rem;
+        cursor: pointer;
+      }
+    }
+
+    & .link {
+      font-variant: small-caps;
+      font-style: normal;
+      font-weight: bold;
+      color: hsl(0, 0%, 100%);
+      text-decoration: none;
+      font-size: 2rem;
+    }
+  }
+}
