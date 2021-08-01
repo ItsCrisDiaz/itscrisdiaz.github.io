@@ -7,6 +7,11 @@ const HTML = document.getElementsByTagName("html");
 const addActiveClass = function () {
   NAV_BUTTON.classList.toggle("active");
   CONTENT_MENU.classList.toggle("active");
+  if (NAV_BUTTON.getAttribute("aria-expanded") === "true") {
+    NAV_BUTTON.setAttribute("aria-expanded", "false");
+  } else {
+    NAV_BUTTON.setAttribute("aria-expanded", "true");
+  }
 };
 
 const switchOverflowHTML = function () {
