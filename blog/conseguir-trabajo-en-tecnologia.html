@@ -41,7 +41,7 @@
       </div>
     </header>
     <main>
-      <div class="blog-entry__header">
+      <div class="blog-entry__header" style="--background: url('/blog/src/images/conseguir-trabajo-en-tecnologia.jpg')">
         <h1>¿Cómo conseguí mi primer trabajo en tecnología?</h1>
         <p>
           <em
@@ -52,7 +52,11 @@
       </div>
       <div class="blog-grid | wrapper">
         <nav class="blog-navbar" aria-label="Secciones de la entrada de blog">
-          <ol class="blog-navbar__list | flow" role="menu">
+          <button class="navbar__button" aria-haspopup="true" aria-expanded="false">
+            <span class="title">Tabla de contenido</span>
+            <span class="icon fas fa-chevron-right" aria-hidden="true"></span>
+          </button>
+          <ol class="blog-navbar__list | flow">
             <li><a class="link" href="#introduccion">Introducción</a></li>
             <li>
               <a class="link" href="#como-saber-si-estas-listo"
@@ -77,10 +81,7 @@
           </ol>
           <div class="blog-navbar__shadow"></div>
         </nav>
-        <button class="navbar__button" aria-haspopup="true" aria-expanded="false">
-          <span class="title">Tabla de contenido</span>
-          <span class="icon fas fa-chevron-right" aria-hidden="true"></span>
-        </button>
+        
         <article class="blog-entry | flow">
           <section class="blog-section | summary" aria-label="Resumen">
             <p><em>Encontrar tu primer trabajo en tecnología es difícil, por esto decidí compartir mi experiencia para ayudarte en esta travesía.</em></p>
