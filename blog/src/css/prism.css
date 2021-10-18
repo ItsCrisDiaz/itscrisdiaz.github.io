@@ -118,4 +118,5 @@ script[type="text/plain"][class*="language-"] {
 
 code.language-markup {
   margin-left: -17rem;
+  display: inline-block;
 }
