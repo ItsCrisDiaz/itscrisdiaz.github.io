@@ -1,0 +1,35 @@
+include ../../../src/pug/mixins/_mixins.pug
+
+-var headDescription = "";
+
+-var headTitle = ""
+
+-var imageName = ""
+
+-var dateTimeNumber = ""
+
+-var dateTimeText = ""
+
+-var indexItems = []
+
+html(lang="es")
+  head
+    include ../../../src/pug/includes/_head.pug
+  body
+    include ../../../src/pug/includes/_header.pug
+    main
+      include ../../../src/pug/includes/_blog-entry__header.pug
+      div(class="blog-grid | wrapper")
+        include ../../../src/pug/includes/_blog-navbar.pug
+
+        article(class="blog-entry | flow")
+          include ../../../src/pug/includes/_summary.pug
+          +sectionIntro
+            p(data-no-top-margin="true") 
+          include ../../../src/pug/includes/_content-table.pug
+          +section(0)
+            p 
+    include ../../../src/pug/includes/_footer.pug
+
+    script(src="/src/js/utils/blogContentAnimation.js")
+    script(src="/blog/src/javascript/prism.js")

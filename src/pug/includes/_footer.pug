@@ -1,0 +1,16 @@
+-var date = new Date()
+
+-var year = date.getFullYear()
+
+footer(class='footer | black-bg | flow')
+  img(class="footer-logo" src='../src/img/images/logo.png' alt='Logo' width='60' height='60')
+  div(class='text-container | flow')
+    p Hecho con #[span(class='icon | heart')] de Cristian.
+    p= `Copyright ${year} - Todos los derechos reservados.`
+  div(class='icon-container | flow')
+    a(target='_blank' href='https://github.com/ItsCrisDiaz' rel='noopener')
+      img.icon(alt='Sitio de GitHub de Cristian Díaz' src='../src/img/icons/icon-github.png' width='24' height='24')
+    a(target='_blank' href='https://www.linkedin.com/in/crisdiaz384/' rel='noopener')
+      img.icon(alt='Perfil de LinkedIn de Cristian Díaz' src='../src/img/icons/linkedin-logo.png' width='24' height='24')
+    a(target='_blank' href='https://twitter.com/ItsCrisDiaz' rel='noopener')
+      img.icon(alt='Cuenta de Twiiter de Cristian Díaz' src='../src/img/icons/twitter-icon.png' width='24' height='24')

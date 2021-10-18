@@ -1,0 +1,11 @@
+nav.blog-navbar(aria-label='Secciones de la entrada de blog')
+  button.navbar__button(aria-haspopup='true' aria-expanded='false')
+    span.title Tabla de contenido
+    span.icon.fas.fa-chevron-right(aria-hidden='true')
+  ol(class='blog-navbar__list | flow')
+    li
+      a.link(href="#introduccion") Introducción
+    each val in indexItems
+      li
+        a.link(href=`#${val[1]}`)= val[0]
+  .blog-navbar__shadow

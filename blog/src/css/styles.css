@@ -210,6 +210,7 @@ a[type=button] {
 .footer-logo {
   width: 6rem;
   height: 100%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }
@@ -257,6 +258,92 @@ li {
 strong,
 b {
   color: #995200;
+}
+
+figcaption {
+  font-size: 1.6rem;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+table {
+  font-size: clamp(1.6769rem, 1.6rem + 0.47vw, 2rem);
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+table caption {
+  font-weight: bold;
+  font-family: var(--font-titles);
+  margin-bottom: 1em;
+}
+
+th[scope=col] {
+  font-family: var(--font-titles);
+}
+
+td:not([scope=row]):not([scope=col]) {
+  font-size: 1.6rem;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+dl {
+  --vertical-flow-space: 1em;
+  font-size: 2rem;
+  max-width: 50rem;
+}
+dl > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-block-start: 2px dotted var(--blog-background-color);
+  border-block-end: 2px dotted var(--blog-background-color);
+  padding: 0.4em;
+}
+dl > div > * {
+  --vertical-flow-space: 0.4em;
+  flex-basis: 50%;
+}
+
+code {
+  color: #bb1450;
+  font-weight: bold;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
+details {
+  max-width: 100%;
+}
+
+summary {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--font-titles);
+}
+
+video {
+  max-width: 100%;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.image-container > * {
+  flex: 1 1 35rem;
+  padding: 1em;
+}
+.image-container img {
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .link {
@@ -349,6 +436,9 @@ b {
   background-size: cover;
   isolation: isolate;
   color: whitesmoke;
+}
+.blog-entry__header > * {
+  text-align: center;
 }
 .blog-entry__header::before {
   position: absolute;
@@ -527,6 +617,11 @@ b {
   padding: 0.4em 2rem 0.4em 2rem;
   background-color: var(--button-color);
   border-radius: 0.3em;
+}
+.additional-information code {
+  border: 1px solid #c2c5cc;
+  background-color: #f5f5f5;
+  padding: 0.0935rem;
 }
 
 .quote-block,

@@ -1,0 +1,23 @@
+mixin sectionIntro
+  section(class="blog-section | flow" id="introduccion")
+    h2.sr-only Introducción 
+    block
+
+mixin section(value)
+  section(class="blog-section | flow" id=`${indexItems[value][1]}`)
+    h2= indexItems[value][0]
+    block
+
+mixin sectionOutro 
+  section(class="blog-section | flow" id="introduccion")
+    h2 Para terminar
+    block
+
+mixin complement(title)
+  aside(class='additional-information | flow')
+    h3= title
+    block
+
+mixin quote 
+  blockquote(class="quote-block")
+    block

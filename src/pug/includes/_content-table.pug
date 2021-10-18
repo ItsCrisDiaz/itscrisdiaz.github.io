@@ -1,0 +1,6 @@
+nav(class='blog-section | flow' aria-labelledby='content-title')
+  h2#content-title Tabla de contenido
+  ol
+    each val in indexItems
+      li
+        a.link(href=`#${val[1]}`)= val[0]

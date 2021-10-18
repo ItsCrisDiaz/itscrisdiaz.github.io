@@ -1,0 +1,583 @@
+include ../../../src/pug/mixins/_mixins.pug
+
+-var headDescription = "Detectar qué tipo de dispositivo se está usando al momento de navegar en un sitio es importante, esto es algo que CSS nos permite detectar para adaptar nuestros diseños. En este artículo explico en detalle estas herramientas.";
+
+-var headTitle = "Media queries hover y pointer"
+
+-var imageName = "media-query-hover-y-pointer"
+
+-var dateTimeNumber = "2021-10-01"
+
+-var dateTimeText = "Octubre 1 de 2021"
+
+-var indexItems = [["Media query hover: detectando punteros", "media-query-hover"], ["Media query pointer: detectando la precisión de un puntero", "media-query-pointer"], ["Media queries any-hover y any-pointer: un nivel más de especificidad detectando punteros", "media-query-any-hover-y-any-pointer"]]
+
+html(lang="es")
+  head
+    include ../../../src/pug/includes/_head.pug
+  body
+    include ../../../src/pug/includes/_header.pug
+    main
+      include ../../../src/pug/includes/_blog-entry__header.pug
+      div(class="blog-grid | wrapper")
+        include ../../../src/pug/includes/_blog-navbar.pug
+
+        article(class="blog-entry | flow")
+          include ../../../src/pug/includes/_summary.pug
+          +sectionIntro
+            p(data-no-top-margin="true") Nuestro paso por Internet está lleno de interacciones y muchas de estas suceden con solamente pasar un cursor por encima de un elemento, solamente para hacer una prueba lo hice con un tweet cualquiera y noté 11 cambios que ocurren bajo esta modalidad.
+            p Seguramente tu como desarrollador #[span(lang="en") Front-End] estás familiarizado con esto, ya que es muy probable que lo has usado como trigger para activar transiciones y animaciones a elementos de un sitio. Es importante agregar este tipo de interacciones porque agregan retroalimentación al usuario sobre que tipo de elementos este puede interactuar.
+            p El problema viene cuando recordamos que la gente no solo ve el contenido a través de un PC o una laptop. También tenemos celulares, #[span(lang="en") tablets], televisores ¡y hasta consolas de videojuegos! Y muchos de estos dispositivos no tienen un puntero que pueda flotar sobre un elemento su forma principal de navegación.
+            p Normalmente esto no supone un problema, ese nivel de interacción no supone mayor pérdida de información para el usuario; pero en otros casos si puede hacer la experiencia de navegar por tu aplicativo web algo incómoda si dependes de este tipo de punteros para mostrar esa información ¿Cómo podemos asegurarnos de darle una experiencia de usuario adecuada en ese caso?
+            p CSS trae una solución nativa y con amplio soporte la cual viene en forma de dos #[span(lang="en") media queries: hover] y #[span(lang="en") pointer]. En esta entrada de blog quiero hablar de que son, como funcionan y cómo podemos usarlas en conjunto para asegurarnos de que la experiencia de usuario no se vea afectada por no haber considerado dispositivos que no tengan un puntero.
+            include ../../../src/pug/includes/_content-table.pug
+            +section(0)
+              p La #[span(lang="en") media query hover] permite detectar si el dispositivo de entrada principal que el usuario utiliza puede flotar sobre elementos. Esta posee dos valores:
+              ul.flow
+                li #[code none] que revisa si el dispositivo no tiene un mecanismo de puntero primario, tal como los teléfonos celulares y algunas tablets.
+                li #[code hover] que revisa si el dispositivo tiene algún mecanismo de entrada que puede flotar sobre algún elemento, tal como lo hace un mouse o un stylus.
+              p Por dar un ejemplo, si queremos que nuestros botones cambien de color al poner el puntero sobre este, pero queremos que solamente pase en dispositivos que permitan flotar sobre un elemento, podríamos hacer esto:
+              pre.language-css
+                code 
+                  | @media (hover: hover) {
+                  |   button:hover {
+                  |     background: darkred;
+                  |   }
+                  | }
+              +complement("Nota importante sobre dispositivos con touchpad")
+                p Seguramente te preguntarás algo como “Oye, yo puedo activar las animaciones y transiciones de un sitio en mi celular si mantengo presionado un elemento” y si, eso es cierto. Sin embargo, esto no quiere decir que el dispositivo #[em tenga] un mecanismo de entrada que pueda flotar sobre los elementos, esto quiere decir que #[em emula] ese efecto a pesar de no tener dicho mecanismo.
+                p Si presionas con tu dedo algún elemento por un momento se activará su animación como si hubiera puesto un puntero sobre este, lo que evita que un usuario no pierda ese #[span(lang="en") feedback] visual. Sin embargo, ten en mente que depender de que el usuario haga esto para ver algún contenido en particular puede generar una mala experiencia de usuario para quienes estén navegando en un teléfono móvil o  #[span(lang="en") tablet]. De ahí la importancia de que nosotros como desarrolladores #[span(lang="en") Front-End] tengamos en cuenta este tipo de interacciones, y por extensión el uso de estas media queries para cubrir estos escenarios.
+              p Ya vimos un ejemplo básico de uso, uno de estos que realmente no interfieren mucho con la experiencia de usuario y que de hecho yo hasta dejaría en un dispositivo sin puntero. Ahora veamos un ejemplo de uso de esta #[span(lang="en") media query] que cambia significativamente dicha experiencia. Este va a ser nuestro ejemplo:
+              div.image-container 
+                figure 
+                  img(src="/blog/src/images/media-query-hover-y-pointer/snippet-1.jpg", alt="Imagen de una card que tiene una imagen de fondo y el texto está sobre un background negro. El título tiene un subrayado y tiene un pequeño texto lorem y un botón que dice 'Leer más' al final" width=355 height=505 style="max-width: 355px")
+              p Se ve bien ¿verdad?, bien, ¡Vamos a maquetarlo! Por practicidad, dejaré el código HTML y CSS a continuación, puedes copiarlo si gustas.
+              details 
+                summary HTML de la Card
+                script(type="text/plain" class="language-markup")
+                  |<article class="card">
+                  |  <img
+                  |    class="card__background"
+                  |    src="https://images.unsplash.com/photo-1563770549-dd6dc8cdd629?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80"
+                  |    alt="Vista de un canal del distrito de Abanotubani en Georgia"
+                  |    width="375"
+                  |    height="500"
+                  |  />
+                  |  <div class="card__content | flow">
+                  |    <div class="card__content--container | flow">
+                  |      <h2 class="card__title">Georgia</h2>
+                  |      <p class="card__description">
+                  |        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum in
+                  |        labore laudantium deserunt fugiat numquam.
+                  |      </p>
+                  |    </div>
+                  |    <button class="card__button">Leer más</button>
+                  |  </div>
+                  |</article>
+              details 
+                summary CSS de la card 
+                pre.language-css
+                  code 
+                    | @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+                    | 
+                    | :root {
+                    |   /* Colors */
+                    |   --brand-color: hsl(46, 100%, 50%);
+                    |   --black: hsl(0, 0%, 0%);
+                    |   --white: hsl(0, 0%, 100%);
+                    |   /* Fonts */
+                    |   --font-title: "Montserrat", sans-serif;
+                    |   --font-text: "Lato", sans-serif;
+                    | }
+                    | 
+                    | /* RESET */
+                    | 
+                    | /* Box sizing rules */
+                    | *,
+                    | *::before,
+                    | *::after {
+                    |   box-sizing: border-box;
+                    | }
+                    | 
+                    | /* Remove default margin */
+                    | body,
+                    | h2,
+                    | p {
+                    |   margin: 0;
+                    | }
+                    | 
+                    | /* GLOBAL STYLES */
+                    | body {
+                    |   display: grid;
+                    |   place-items: center;
+                    |   height: 100vh;
+                    | }
+                    | 
+                    | h2 {
+                    |   font-size: 2.25rem;
+                    |   font-family: var(--font-title);
+                    |   color: var(--white);
+                    |   line-height: 1.1;
+                    | }
+                    | 
+                    | p {
+                    |   font-family: var(--font-text);
+                    |   font-size: 1rem;
+                    |   line-height: 1.5;
+                    |   color: var(--white);
+                    | }
+                    |
+                    | .flow > * + * {
+                    |   margin-top: var(--flow-space, 1em);
+                    | }
+                    | 
+                    | /* CARD COMPONENT */
+                    | 
+                    | .card {
+                    |   display: grid;
+                    |   place-items: center;
+                    |   width: 80vw;
+                    |   max-width: 21.875rem;
+                    |   height: 31.25rem;
+                    |   overflow: hidden;
+                    |   border-radius: 0.625rem;
+                    |   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+                    | }
+                    | 
+                    |  .card > * {
+                    |   grid-column: 1 / 2;
+                    |   grid-row: 1 / 2;
+                    | }
+                    | 
+                    | .card__background {
+                    |   object-fit: cover;
+                    |   max-width: 100%;
+                    |   max-height: 100%;
+                    | }
+                    | 
+                    | .card__content {
+                    |   --flow-space: 0.9375rem;
+                    |   display: flex;
+                    |   flex-direction: column;
+                    |   justify-content: space-between;
+                    |   align-self: flex-end;
+                    |   height: 55%;
+                    |   padding: 12% 1.25rem 1.875rem;
+                    |   background: linear-gradient(
+                    |     180deg,
+                    |     hsla(0, 0%, 0%, 0) 0%,
+                    |     hsla(0, 0%, 0%, 0.3) 10%,
+                    |     hsl(0, 0%, 0%) 100%
+                    |   );
+                    | }
+                    | 
+                    | .card__content--container {
+                    |   --flow-space: 1.25rem;
+                    | }
+                    | 
+                    | .card__title {
+                    |   position: relative;
+                    |   width: fit-content;
+                    |   width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+                    | }
+                    | 
+                    | .card__title::after {
+                    |   content: "";
+                    |   position: absolute;
+                    |   height: 0.3125rem;
+                    |   width: calc(100% + 1.25rem);
+                    |   bottom: calc((1.25rem - 0.5rem) * -1);
+                    |   left: -1.25rem;
+                    |   background-color: var(--brand-color);
+                    | }
+                    | 
+                    | .card__button {
+                    |   padding: 0.75em 1.6em;
+                    |   width: fit-content;
+                    |   width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+                    |   font-variant: small-caps;
+                    |   font-weight: bold;
+                    |   border-radius: 0.45em;
+                    |   border: none;
+                    |   background-color: var(--brand-color);
+                    |   font-family: var(--font-title);
+                    |   font-size: 1.125rem;
+                    |   color: var(--black);
+                    | }
+                    | 
+                    | .card__button:focus {
+                    |   box-shadow: inset 0 0 0 0.3em var(--brand-color), inset 0 0 0 0.45em black;
+                    |   outline: none;
+                    | }
+              p Una vez maquetado, vamos a decidir cómo se animará al momento de pasar el puntero sobre este. En mi caso decidí estas animaciones.
+              ul.flow 
+                li La card aumentará levemente de tamaño.
+                li El contenido va a iniciar más abajo, al poner el puntero sobre la card, este subirá a su posición original.
+                li El subrayado del título (hecho con un pseudo elemento #[span(lang="en") after] va a aparecer de izquierda a derecha después de que el contenedor esté en posición.
+                li Después de que este subrayado aparezca, el texto y el botón aparecerán.
+              p Para esto vamos a agregarle unas declaraciones extra a los selectores #[code .card__content] y a #[code .card__title::after] para agregar un efecto de transición, además de agregar unas reglas para activar la animación al hacer #[span(lang="en") hover] al elemento.
+              details 
+                summary Animación de la card en CSS
+                pre.language-css
+                  code /* REGLAS PARA DECLARAR EL ESTADO INICIAL DE LA CARD */
+                    | 
+                    | /* Adicionar a reglas anteriores  */
+                    | 
+                    | .card__content {
+                    |   transform: translateY(62%);
+                    |   transition: transform 500ms ease-out;
+                    |   transition-delay: 500ms;
+                    | }
+                    | 
+                    | .card__title::after {
+                    |  opacity: 0;
+                    |  transform: scaleX(0);
+                    |  transition: opacity 1000ms ease-in, transform 500ms ease-out;
+                    |  transition-delay: 500ms;
+                    |  transform-origin: right;
+                    | }
+                    | 
+                    | /* Reglas nueva */
+                    | 
+                    | .card__content--container > :not(.card__title),
+                    | .card__button {
+                    |   opacity: 0;
+                    |   transition: transform 500ms ease-out, opacity 500ms ease-out;
+                    | }
+                    | 
+                    | /* REGLAS PARA DECLARAR EL ESTADO AL HACER HOVER */
+                    | 
+                    | .card:hover,
+                    | .card:focus-within {
+                    |   transform: scale(1.05);
+                    |   transition: transform 500ms ease-in;
+                    | }
+                    | 
+                    | .card:hover .card__content,
+                    | .card:focus-within .card__content {
+                    |   transform: translateY(0);
+                    |   transition: transform 500ms ease-in;
+                    | }
+                    | 
+                    | .card:hover .card__content--container > :not(.card__title),
+                    | .card:hover .card__button,
+                    | .card:focus-within .card__content--container > :not(.card__title),
+                    | .card:focus-within .card__button {
+                    |   opacity: 1;
+                    |   transition: opacity 500ms ease-in;
+                    |   transition-delay: 1000ms;
+                    | }
+                    | 
+                    | .card:hover .card__title::after,
+                    | .card:focus-within .card__title::after {
+                    |   opacity: 1;
+                    |   transform: scaleX(1);
+                    |   transform-origin: left;
+                    |   transition: opacity 500ms ease-in, transform 500ms ease-in;
+                    |   transition-delay: 500ms;
+                    | }
+              p Y así es como se ve nuestra #[span(lang="en") card] animada.
+              video(controls width=522)
+                source(src="/blog/src/videos/snippet-2.webm" type="video/webm")
+                source(src="/blog/src/videos/snippet-2.mp4" type="video/mp4")
+              +complement("Pseudo clase focus-within")
+                p Seguramente viste en el código que cuando apliqué las reglas para activar la animación en un hover también usé estas mismas con una pseudo-clase llamada #[span(lang="en") focus-within]. Esta pseudo-clase lo que hace es agregar un estado a un elemento cuando el elemento en sí o algún elemento hijo tenga el estado de #[span(lang="en") focus] (es decir, se haya seleccionado navegando con el teclado)
+                p Debido a como funciona esta animación, si no agregamos esta regla, las personas que navegan con teclado no podrían ver la información de la #[span(lang="en") card], lo que generaría un problema de accesibilidad serio, por lo que en este ejemplo decidí considerarlo al hacer que lo mismo que hacemos mediante el estado hover se aplique cuando se navega por teclado.
+              p Vaya que agregar estas interacciones hacen un gran cambio, pero ahora llegamos al problema que quería señalar: los usuarios de teléfonos, #[span(lang="en") tablets] y otros dispositivos sin un puntero no van a poder ver la información al menos que presionen la #[span(lang="en") card] con su dedo por un momento, lo cual no es muy intuitivo y genera una mala experiencia de usuario. Podemos arreglar esto gracias a la #[span(lang="en") media query hover] y en este caso agregaremos todas las animaciones que queramos que solo ocurran en dispositivos con un puntero.
+              p En este caso sería todas las animaciones que involucran la presentación del contenido: que la tarjeta se desplace, la animación de subrayado y que el texto aparezca. La animación de la #[span(lang="en") card] aumentando de tamaño podría dejarse para dispositivos sin puntero, solo para darle un feedback visual al usuario de que está interactuando con esta. Eso ya queda a tu decisión, en mi caso decidí que esta animación también se verá solamente para dispositivos que tengan puntero.
+              p Básicamente sería colocar el código anterior dentro de esta media query. Así es como se vería (Recuerda eliminar lo que agregamos en el paso anterior en #[code .card__content] y  #[code .card__title::after] ya que esto irá dentro de la #[span(lang="en") media query hover])
+              details 
+                summary Animación de la card en CSS (media query: hover)
+                pre.language-css
+                  code @media (hover: hover) {
+                    | /* Reglas de elementos anteriores que movemos a la media query */
+                    | 
+                    |   .card__content {
+                    |     transform: translateY(62%);
+                    |     transition: transform 500ms ease-out;
+                    |     transition-delay: 500ms;
+                    |   }
+                    |   
+                    |  .card__title::after {
+                    |     opacity: 0;
+                    |     transform: scaleX(0);
+                    |     transition: opacity 1000ms ease-in, transform 500ms ease-out;
+                    |     transition-delay: 500ms;
+                    |     transform-origin: right;
+                    |   }
+                    |   
+                    |   /* Reglas relacionadas a la animación del elemento */
+                    |   
+                    |   .card__content--container > :not(.card__title),
+                    |   .card__button {
+                    |     opacity: 0;
+                    |     transition: transform 500ms ease-out, opacity 500ms ease-out;
+                    |   }
+                    | 
+                    |   .card:hover,
+                    |   .card:focus-within {
+                    |     transform: scale(1.05);
+                    |     transition: transform 500ms ease-in;
+                    |   }
+                    | 
+                    |   .card:hover .card__content,
+                    |   .card:focus-within .card__content {
+                    |     transform: translateY(0);
+                    |     transition: transform 500ms ease-in;
+                    |   }
+                    |   
+                    |   .card:focus-within .card__content {
+                    |     transition-duration: 0ms;
+                    |   }
+                    |   
+                    |   .card:hover .card__content--container > :not(.card__title),
+                    |   .card:hover .card__button,
+                    |   .card:focus-within .card__content--container > :not(.card__title),
+                    |   .card:focus-within .card__button {
+                    |     opacity: 1;
+                    |     transition: opacity 500ms ease-in;
+                    |     transition-delay: 1000ms;
+                    |   }
+                    | 
+                    |   .card:hover .card__title::after,
+                    |   .card:focus-within .card__title::after {
+                    |     opacity: 1;
+                    |     transform: scaleX(1);
+                    |     transform-origin: left;
+                    |     transition: opacity 500ms ease-in, transform 500ms ease-in;
+                    |     transition-delay: 500ms;
+                    |   }
+                    | }
+              p Y así es como se vería en desktop y en mobile: 
+              div.image-container
+                figure.flow
+                  img(src="/blog/src/images/media-query-hover-y-pointer/snippet-2-desktop.png" alt="Diseño de la card completado en un computador de escritorio, donde se ve el contenido oculto esperando que se active la animación." width=355 height=505)
+                  div
+                    figcaption Estado inicial de la card en desktop, donde se ve que el contenido está oculto y se mostrará cuando el cursor se pose sobre esta.
+                figure.flow
+                  img(src="/blog/src/images/media-query-hover-y-pointer/snippet-2-mobile.png" alt="Diseño de la card en mobile, donde se ve que está mostrando todo el contenido." width=355 height=505)
+                  figcaption Diseño de la card en un dispositivo sin puntero donde se ve el contenido de la card completo, ya que este no tiene animación.
+              p Y esto hubiera sido todo el artículo de no ser por algo más que pasó. Verán, este diseño fue una práctica que hice hace unos meses siguiendo #[a( class="link" href="https://youtu.be/5DEq5cWNYt8" target="_blank") este video de Kevin Powell] (canal que en serio recomiendo si quieren aprender de CSS) donde incluye el tema de la #[span(lang="en") media query hover]. Lo hice, se lo mostré a un amigo... Y seguía mostrándose como si el dispositivo usara algún puntero. ¿La razón? Bueno, hablando con él, me contó que tiene un Samsung #[span(lang="en") Galaxy Note 9].
+              p Este dispositivo cuenta con un stylus, y como podrás suponer, un stylus es un dispositivo de entrada que funciona como puntero, por lo tanto, #[strong la #[span(lang="en") media query hover] lo detectará como un dispositivo con puntero] por lo que hará que en este #[span(lang="en") Galaxy Note] se vea la animación.
+              p ¿Queremos que eso suceda? Yo por lo personal no. No creo que sea muy intuitivo que un usuario con un stylus tenga que presionarlo en la #[span(lang="en") card] para que muestre el contenido, ya que este comportamiento es usual verlo en PC, pero no en celular o #[span(lang="en") tablet].
+              p ¿Cómo resolvemos esto? Por fortuna para nosotros ¡CSS tiene una solución bastante sencilla al respecto! esta es el uso de otra #[span(lang="en") media query] de la cual hablaré en este artículo.
+            +section(1)
+              p A veces no solo basta con detectar si el dispositivo tiene un puntero, también hay que determina la precisión de este, y para esto usamos la #[span(lang="en") #[em media query pointer]]. Esta tiene tres valores: 
+              ul.flow
+                li #[code none] en la que el dispositivo en cuestión no posee un puntero como mecanismo principal de navegación.
+                li #[code coarse] donde revisa si el dispositivo tiene como mecanismo principal de navegación un puntero poco preciso (como #[span(lang="en") touchscreens], algunos controles de televisor o incluso #[span(lang="en") wiimotes])
+                li #[code fine] la cual busca si el dispositivo tiene como mecanismo de navegación un puntero que sea preciso (como #[span(lang="en") stylus] o un #[span(lang="en") mouse])
+              p Antes de entrar en detalle de como usaríamos esta #[span(lang="en") media query] para nuestra #[span(lang="en") card], quiero mencionar su potencial para solucionar algunos temas de accesibilidad: saber si un dispositivo tiene un puntero poco preciso nos ayuda a crear elementos que sean más fáciles de interactuar en estos casos.
+              p Solo por comentar un caso personal, me ocurre a menudo que por error presione en un enlace o botón que no quería porque resulta que no tienen el suficiente espacio entre sí, o son opciones que son muy pequeñas (es eso o tengo dedos gordos) lo que puede generar cierto malestar para el usuario, y es ahí donde entra la #[span(lang="en") media query pointer] para ayudarnos a resolver estos detalles. Veámoslo con un ejemplo rápido.
+              p Creemos un formulario en el que seleccionaremos algunas opciones, pero asegurémonos que en elementos con un puntero poco precioso tengan el suficiente espacio para evitar seleccionar alguna opción que no quieras. Para eso tenemos este código HTML y CSS.
+              details 
+                summary HTML del formulario
+                script(type="text/plain" class="language-markup")
+                  | <form action="post">
+                  |   <fieldset>
+                  |     <legend>¿Qué lenguajes de programación quieres aprender?</legend>
+                  |     <div class="language-grid">
+                  |       <label for="c"> <input type="checkbox" id="c" /> C </label>
+                  |       <label for="c+"> <input type="checkbox" id="c+" /> C+ </label>
+                  |       <label for="c++"> <input type="checkbox" id="c++" /> C++ </label>
+                  |       <label for="c-sharp"> <input type="checkbox" id="c-sharp" /> C# </label>
+                  |       <label for="kotlin"> <input type="checkbox" id="kotlin" /> Kotlin </label>
+                  |       <label for="java"> <input type="checkbox" id="java" /> Java </label>
+                  |       <label for="javascript"> <input type="checkbox" id="javascript" /> JavaScript </label>
+                  |       <label for="go"> <input type="checkbox" id="go" /> Go </label>
+                  |       <label for="objective-c"> <input type="checkbox" id="objective-c" /> Objective-C </label>
+                  |       <label for="php"> <input type="checkbox" id="php" /> PHP </label>
+                  |       <label for="python"> <input type="checkbox" id="python" /> Python </label>
+                  |       <label for="ruby"> <input type="checkbox" id="ruby" /> Ruby </label>
+                  |       <label for="rust"> <input type="checkbox" id="rust" /> Rust </label>
+                  |       <label for="scala"> <input type="checkbox" id="scala" /> Scala </label>
+                  |       <label for="swift"> <input type="checkbox" id="swift" /> Swift </label>
+                  |       <label for="other"> <input type="checkbox" id="other" /> Otro </label>
+                  |     </div>
+                  |     <button type="button">Enviar</button>
+                  |   </fieldset>
+                  | </form>
+              details
+                summary CSS del formulario
+                pre.language-css
+                  code
+                    | @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap");
+                    | 
+                    | body {
+                    |   font-family: "Fira Sans", sans-serif;
+                    | }
+                    | 
+                    | fieldset {
+                    |   padding: 0.6em 1em 2em;
+                    |   border-radius: 1em;
+                    |   border-color: #722f37;
+                    |   box-shadow: 0.25rem 0.25rem 0.2rem rgba(0, 0, 0, 0.25);
+                    | }
+                    | 
+                    | legend {
+                    |   font-size: 1.3rem;
+                    |   text-align: center;
+                    |   font-weight: bold;
+                    | }
+                    | 
+                    | form {
+                    |   max-width: 53.125rem;
+                    |   margin: 0 auto;
+                    | }
+                    | 
+                    | input[type="checkbox"] {
+                    |   margin-inline-end: 0.5em;
+                    |   accent-color: #722f37;
+                    | }
+                    | 
+                    | input[type="checkbox"]:focus {
+                    |   outline: 2px solid #722f37;
+                    |   outline-offset: 0.2em;
+                    | }
+                    | 
+                    | label {
+                    |   display: flex;
+                    |   align-items: center;
+                    | }
+                    | 
+                    | .language-grid {
+                    |   display: grid;
+                    |   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+                    |   gap: 0.3em;
+                    |   margin-bottom: 1.2em;
+                    |   align-items: center;
+                    | }
+                    | 
+                    | button[type="button"] {
+                    |   display: block;
+                    |   margin: 0 auto;
+                    |   padding: 0.3em 1em;
+                    |   color: white;
+                    |   font-weight: bold;
+                    |   background-color: #722f37;
+                    |   font-size: 1.25rem;
+                    |   border: none;
+                    |   border-radius: 0.5em;
+                    | }
+                    | 
+                    | button[type="button"]:focus {
+                    |   outline: 2px solid #722f37;
+                    |   outline-offset: 0.4em;
+                    | }
+                    | 
+                    | @media screen and (pointer: coarse) {
+                    |   .language-grid {
+                    |     row-gap: 0.5em;
+                    |   }
+                    | 
+                    |   label {
+                    |     font-size: 1.05em;
+                    |   }
+                    | 
+                    |   input[type="checkbox"] {
+                    |     width: 1.625rem;
+                    |     height: 1.625rem;
+                    |   }
+                    | 
+                    |   button[type="button"] {
+                    |     min-height: 3rem;
+                    |   }
+                    | }
+              p El CSS en su mayor parte es solo para salirnos del formato estándar, pero enfoquémonos en el código dentro de la #[span(lang="en") media query] para ver los cambios que hay en pantallas sin un puntero preciso:
+              ul.flow 
+                li El espacio entre fila y fila es un poco más grande (de 0.3em a 0.5em) evitando así la probabilidad de que por error el usuario seleccione una opción incorrecta.
+                li Los elementos input pasan de 16px a 26px (todo expresado en rem) para que sea más fácil hacerle tap. El texto del elemento #[code label] incrementa ligeramente de tamaño para que no sea disonante la diferencia de tamaño entre el checkbox y el texto.
+                li El botón de Enviar cambia su alto mínimo a 48px (de nuevo, expresado en rem) Esto se debe a que 48px equivalen más o menos a 9mm, que es el tamaño del área de un tap.
+              p Son cambios pequeños, pero esos detalles mejoran mucho la experiencia en dispositivos con punteros poco precisos, lo cual vale la pena considerar.
+              +complement("Propiedad accent-color")
+                p En el CSS probablemente viste que a los <code>input[type=”checkbox”]</code> le puse una propiedad llamada #[code accent-color]. Esta propiedad es muy nueva y permite darle color a los elementos que tienen énfasis como los input tipo checkbox, radio y range.
+                p Esto permite añadir estilos a estos #[code input] muy fácilmente y en el caso de los input tipo #[span(lang="en") checkbox], viene con la accesibilidad en mente, ya que mide automáticamente el contraste del elemento check dentro de este para que sea visible siempre con el #[code accent-color] escogido.
+                p Si quieres ver de lo que hablo, haz la prueba y cambia el color de esta propiedad por cualquier otro y verás como automáticamente escoge el que tenga mejor contraste.
+                p A la fecha, está bien soportado en los navegadores actuales (solo Safari no lo ha implementado) e igual es solo una línea de código que si el navegador no puede leer, no pasa nada, solo se verá el estilo por defecto. Vale la pena empezar a implementarlo en tus proyectos.
+              p Ahora que vimos un ejemplo de cómo funciona la #[span(lang="en") media query pointer] te debes estar preguntando como hacemos para resolver el problema que mencioné de nuestra #[span(lang="en") card], y la respuesta a esto no está en usar la #[span(lang="en") media query hover] #[em o] la #[span(lang="en") media query pointer]. Para este tipo de casos tenemos que usar #[strong ambas #[span(lang="en") media queries]] de modo tal que pueda detectar ciertos dispositivos.
+              p Examinemos nuestro caso: queremos que nuestra animación se vea en un computador. Estos son dispositivos que tienen un puntero, por lo que usaríamos #[code @media (hover: hover)] y el puntero de estos es uno preciso, por lo que usaríamos #[code @media (pointer: fine)]. Combinando estas propiedades, podemos reemplazar la media query que usamos anteriormente por
+              p #[pre.language-css #[code @media (hover: hover) and (pointer: fine)]]
+              p Y es que, combinando estas dos herramientas podemos detectar dispositivos específicos, lo que nos ayudará a adaptar nuestros sitios a las necesidades específicas de estos. En la tabla que verás a continuación vas a encontrar qué tipos de dispositivos puedes detectar usando las propiedades de estas #[span(lang="en") media queries].
+              table
+                caption Equipos que se pueden detectar combinando las media query hover y pointer
+                thead 
+                  tr 
+                    th(scope="col") Valor media query hover
+                    th(scope="col") Valor media query pointer
+                    th(scope="col") Dispositivo
+                tbody 
+                  tr 
+                    th(scope="row") #[code none]
+                    th(scope="row") #[code coarse]
+                    td Pantallas con #[span(lang="en") stylus]
+                  tr 
+                    th(scope="row") #[code none]
+                    th(scope="row") #[code fine]
+                    td #[span(lang="en") Smartphones, touchscreens]
+                  tr 
+                    th(scope="row") #[code hover]
+                    th(scope="row") #[code coarse]
+                    td #[span(lang="en") Smart TV], consolas de videojuegos 
+                  tr 
+                    th(scope="row") #[code hover]
+                    th(scope="row") #[code fine]
+                    td 	Computadores, #[span(lang="en") laptops]
+              p Así que ya sabes, si necesitas aplicar algunas propiedades específicas de CSS a estos dispositivos ¡las #[span(lang="en") media query hover] y #[span(lang="en") pointer] son tu mejor alternativa!
+              p Podría terminar el blog aquí, pero hay un detalle: como dije en un principio estas dos #[span(lang="en") media queries] solo detectan si el puntero #[em principal] del dispositivo coincide con la condición que queremos evaluar. Si bien esto cubre una amplia cantidad de dispositivos, no cubre todos los casos. La buena noticia es que podemos evaluar estos casos específicos con CSS. Veamos un poco más de esto en la siguiente sección.
+            +section(2)
+              div.image-container
+                figure.flow
+                  img(src="https://i1.wp.com/css-tricks.com/wp-content/uploads/2020/09/RYMHpR9b-2.jpeg?resize=1000%2C750&ssl=1" alt="Teléfono Android con mouse y teclado conectados vía Bluetooth" width=1000 height=750)
+                  div
+                    figcaption Un teléfono Android con un #[span(lang="en") mouse] y un teclado conectados via Bluetooth. Se puede ver como se está haciendo #[span(lang="en") click] con el botón derecho.
+                figure.flow
+                  img(src="/blog/src/images/media-query-hover-y-pointer/control-inalambrico.jpg" alt="Mini control inalámbrico con touchpad que funciona en dispositivos como consolas y televisores" width=960 height=720)
+                  figcaption Un mini-control inalámbrico que permite controlar dispositivos como consolas y televisores. Aparte de tener teclado, tiene un #[span(lang="en") touchpad] que permite usar un mouse en estos dispositivos.
+              p ¿Qué podemos ver en las siguientes imágenes?
+              p En la primera podemos ver que, a pesar de ser un celular, este tiene conectado a través de Bluetooth un teclado y un #[span(lang="en") mouse]. Con lo que hemos aprendido hasta ahora no podríamos detectar el mouse en este caso por el simple hecho de que con la #[span(lang="en") media query pointer] solo detectamos la precisión del puntero principal del dispositivo (en este caso, el #[span(lang="en") touchpad]) y el #[span(lang="en") mouse] pasará por alto ¿Queremos tener estos cambios del puntero en nuestros diseños?
+              p El segundo es un control inalámbrico que puede conectarse a varios dispositivos: consolas, La #[span(lang="en") Smart] TVs, incluso computadores o La #[span(lang="en") laptops]. Aparte de agregar un teclado, también se puede usar como un La #[span(lang="en") touchpad], lo que añade un puntero preciso. Esto es particularmente útil en un televisor, donde navegar a través de un control puede ser muy molesto. ¿Este es un caso de uso que queremos tener en cuenta al momento de adaptar nuestros sitios?
+              p ¿Qué tienen estos casos en común? Estos nos añaden nuevas opciones de navegar por dispositivos que #[strong no] son detectadas por las media queries vistas anteriormente al no ser métodos #[em primarios] del dispositivo para navegar. Por suerte para nosotros, CSS tiene esto cubierto con otras dos medias queries: #[code any-hover] y #[code any-pointer].
+              p La #[span(lang="en") media query] #[code any-hover] nos permite detectar si cualquiera de las opciones de entrada del dispositivo puede flotar sobre un elemento, ya no solo el método principal del dispositivo. Al igual que la #[span(lang="en") media query hover], esta tiene dos valores: #[code none] y #[code hover]. La diferencia está en los resultados que obtienes con esta.
+              p Sólo con este cambio, la #[span(lang="en") media query] #[code any-hover] podría detectar un dispositivo que normalmente no tiene un puntero (como un iPad) que tiene conectado un #[span(lang="en") mouse]. Esto solo ya abre más posibilidades al momento de adaptar nuestros diseños a otros dispositivos.
+              p Por otro lado, la #[span(lang="en") media query] #[code any-pointer], como podrás suponer, nos permite evaluar el nivel de precisión de  cualquiera de las opciones de entrada de un dispositivo, y al igual que la #[span(lang="en") media query pointer], tiene tres opciones: #[code none] (el dispositivo definitivamente no tiene un puntero) #[code coarse] (el dispositivo tiene al menos un puntero poco preciso) y #[code fine] (el dispositivo tiene al menos una opción de puntero precisa).
+              p Si bien la sintaxis entre estas dos y las que vimos anteriormente es básicamente idéntida, los resultados que podemos esperar serán distintos. Para empezar, ahora podremos revisar casos como los que vimos al inicio de esta sección de un dispositivo que por si solo no tiene un puntero, pero se conectó un mouse vía #[span(lang="en") Bluetooth], lo que le da esa posibilidad. Puedes ver que tipo de escenarios puedes detectar con estas #[span(lang="en") media queries] en el siguiente listado.
+              dl.flow
+                div
+                  div 
+                    dt #[code any-pointer: coarse]
+                  div.flow
+                    dd #[span(lang="en") Touchscreen]
+                    dd #[span(lang="en") Touchscreen] y #[span(lang="en") mouse]
+                    dd Computador con #[span(lang="en") touchscreen]
+                div
+                  div 
+                    dt #[code any-pointer: fine]
+                  div.flow
+                    dd #[span(lang="en") Touchscreen] y #[span(lang="en") mouse]
+                    dd Computador
+                    dd Computador con #[span(lang="en") touchscreen]
+                div
+                  div 
+                    dt #[code any-hover: none]
+                  div.flow
+                    dd #[span(lang="en") Touchscreen]
+                div
+                  div 
+                    dt #[code any-pointer: hover]
+                  div.flow
+                    dd #[span(lang="en") Touchscreen] y #[span(lang="en") mouse]
+                    dd Computador
+                    dd Computador con #[span(lang="en") touchscreen]
+              p Todo esto no podíamos analizarlo solamente usando las #[span(lang="en") media queries pointer] y #[span(lang="en") hover] ya que solo analizaban el método principal de entrada del dispositivo, por lo que el uso de #[code any-pointer] y #[code any-hover] nos abre otras puertas. ¡Pero eso no es todo! Podemos combinar las cuatro #[span(lang="en") media queries] que vimos para adaptar nuestros sitios a escenarios específicos. Veamos un par de ejemplos:
+              ul.flow 
+                li #[code @media (pointer: fine) and (any-pointer: coarse)] Nos permite identificar si el dispositivo tiene un puntero como método de entrada principal y a su vez tiene una #[span(lang="en") touchscreen]. Esto puede ser útil en caso si queremos que incluso en estos escenarios los elementos de nuestro sitio que requieran interacción (como botones o #[span(lang="en") inputs]) tengan algún cambio para hacer más fácil su interacción en caso de que el usuario quiera usar la #[span(lang="en") touchscreen].
+                li #[code @media (pointer: coarse) and (any-pointer: fine)] cubriría dispositivos que estén pensados para manejarse con un puntero poco preciso pero que tengan algún puntero preciso como navegación secundaria (un #[span(lang="en") stylus] o tal vez un #[span(lang="en") mouse]) Con estas especificaciones, podríamos hacer nuestro diseño enfocado a dispositivos touch y que funcionen igual de bien si se usa el puntero de este dispositivo.
+              p Como puedes ver, este tema de detección de puntero tiene muchos matices en medio y con CSS eres capaz de adaptar tu sitio a diversos escenarios, pero tal vez con eso no sea suficiente. Esto también varía un poco de navegador en navegador y a veces se hace necesario el uso de JavaScript para reforzar la experiencia.
+              p Este es un tema que puede llegar a ser complejo, y creo que ya abarqué lo suficiente. Si quieren ver casos más en detalle les dejo #[a.link(href="https://css-tricks.com/interaction-media-features-and-their-potential-for-incorrect-assumptions/" target="_blank" rel="noopener noreferrer") este artículo de Patrick H. Lauke] en CSS Tricks sobre el tema .
+            +sectionOutro()
+              p Navegar por la web es algo que se puede hacer a través de muchos dispositivos y puede que tener en cuenta varios matices en nuestros diseños para poder adaptarlos a las necesidades específicas de cada uno. 
+              p Gracias a lo mucho que ha avanzado CSS, podemos tener la gran mayoría de estos casos en cuenta gracias a las #[span(lang="en") media query hover, pointer, any-hover] y #[span(lang="en") any-pointer]. También recuerda ver el artículo que dejé en la sección anterior por si quieres saber algo más del tema.
+    include ../../../src/pug/includes/_footer.pug
+
+    script(src="/src/js/utils/blogContentAnimation.js")
+    script(src="/blog/src/javascript/prism.js")
