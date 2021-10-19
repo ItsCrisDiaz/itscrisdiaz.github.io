@@ -577,6 +577,7 @@ button[type="button"]:focus {
           </section>
           <section class="blog-section | flow" id="media-query-any-hover-y-any-pointer">
             <h2>Media queries any-hover y any-pointer: un nivel más de especificidad detectando punteros</h2>
+            <p>Veamos un poco los siguientes casos:</p>
             <div class="image-container">
               <figure class="flow"><img src="https://i1.wp.com/css-tricks.com/wp-content/uploads/2020/09/RYMHpR9b-2.jpeg?resize=1000%2C750&amp;ssl=1" alt="Teléfono Android con mouse y teclado conectados vía Bluetooth" width="1000" height="750"/>
                 <div>
@@ -589,7 +590,6 @@ button[type="button"]:focus {
                 <figcaption>Un mini-control inalámbrico que permite controlar dispositivos como consolas y televisores. Aparte de tener teclado, tiene un <span lang="en">touchpad</span> que permite usar un mouse en estos dispositivos.</figcaption>
               </figure>
             </div>
-            <p>¿Qué podemos ver en las siguientes imágenes?</p>
             <p>En la primera podemos ver que, a pesar de ser un celular, este tiene conectado a través de Bluetooth un teclado y un <span lang="en">mouse</span>. Con lo que hemos aprendido hasta ahora no podríamos detectar el mouse en este caso por el simple hecho de que con la <span lang="en">media query pointer</span> solo detectamos la precisión del puntero principal del dispositivo (en este caso, el <span lang="en">touchpad</span>) y el <span lang="en">mouse</span> pasará por alto ¿Queremos tener estos cambios del puntero en nuestros diseños?</p>
             <p>El segundo es un control inalámbrico que puede conectarse a varios dispositivos: consolas, La <span lang="en">Smart</span> TVs, incluso computadores o La <span lang="en">laptops</span>. Aparte de agregar un teclado, también se puede usar como un La <span lang="en">touchpad</span>, lo que añade un puntero preciso. Esto es particularmente útil en un televisor, donde navegar a través de un control puede ser muy molesto. ¿Este es un caso de uso que queremos tener en cuenta al momento de adaptar nuestros sitios?</p>
             <p>¿Qué tienen estos casos en común? Estos nos añaden nuevas opciones de navegar por dispositivos que <strong>no</strong> son detectadas por las media queries vistas anteriormente al no ser métodos <em>primarios</em> del dispositivo para navegar. Por suerte para nosotros, CSS tiene esto cubierto con otras dos medias queries: <code>any-hover</code> y <code>any-pointer</code>.</p>
