@@ -627,6 +627,10 @@ cite {
   background-color: #f5f5f5;
   padding: 0.0935rem;
 }
+.additional-information a {
+  display: inline;
+  color: #bb1450;
+}
 
 .quote-block,
 .quote-line {
