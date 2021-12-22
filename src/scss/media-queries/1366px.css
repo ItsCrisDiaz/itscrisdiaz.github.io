@@ -1,0 +1,27 @@
+@media screen and (min-width: 1366px) {
+  .hero,
+.projects,
+.services,
+.testimonials {
+    padding: 8rem 7.2rem;
+  }
+
+  .header {
+    height: 9.6rem;
+    padding: 2.4rem 7.2rem;
+  }
+
+  .projects .description {
+    --horizontal-flow-space: 9rem;
+  }
+
+  .footer {
+    padding: 4.8rem 7.2rem;
+  }
+
+  .text-container p {
+    font-size: var(--headline-5-and-body-fs);
+  }
+}
+
+/*# sourceMappingURL=1366px.css.map */
