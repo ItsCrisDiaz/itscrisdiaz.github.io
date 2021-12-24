@@ -1,0 +1,115 @@
+
+<html lang="es">
+  <head>
+    <head> 
+      <meta charset="UTF-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="description" content="Revisando mi proyecto personal más grande, me di cuenta que su accesibilidad deja mucho que desear. Aprovecharé este proceso de rediseño y documentaré el proceso para poder enseñar sobre qué podemos hacer para hacer nuestros sitios más accesibles."/>
+      <link rel="stylesheet" href="/blog/src/css/styles.css"/>
+      <link rel="stylesheet" href="/src/css/reset.css"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com"/>
+      <link rel="stylesheet" href="/blog/src/css/prism.css"/>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+      <title>Resideñando mi analizador financiero desde la accesibilidad | Cristian Díaz</title>
+    </head>
+  </head>
+  <body>
+    <header class="header | black-bg">
+      <div class="wrapper | flow"><a href="/index.html">
+          <picture>
+            <source srcset="/src/img/images/logo-tablet.png" media="(min-width: 768px)"/><img src="/src/img/images/logo.png" alt="Logo"/>
+          </picture></a></div>
+    </header>
+    <main>
+      <div class="blog-entry__header" style="--background: url('/blog/src/images/residenando-analizador-financiero.jpg')">
+        <h1>Resideñando mi analizador financiero desde la accesibilidad</h1>
+        <p><em>Publicado el: 
+            <time datetime="2021-12-27">Diciembre 27 de 2021</time></em></p>
+      </div>
+      <div class="blog-grid | wrapper">
+        <nav class="blog-navbar" aria-label="Secciones de la entrada de blog">
+          <button class="navbar__button" aria-haspopup="true" aria-expanded="false"><span class="title">Tabla de contenido</span><span class="icon fas fa-chevron-right" aria-hidden="true"></span></button>
+          <ol class="blog-navbar__list | flow">
+            <li><a class="link" href="#introduccion">Introducción</a></li>
+            <li><a class="link" href="#guia-proyecto">Guía por el proyecto</a></li>
+            <li><a class="link" href="#fallos-accesibilidad">Fallos de accesibilidad</a></li>
+            <li><a class="link" href="#lista-articulos">Lista de artículos</a></li>
+          </ol>
+          <div class="blog-navbar__shadow"></div>
+        </nav>
+        <article class="blog-entry | flow">
+          <section class="blog-section | summary" aria-label="Resumen">
+            <p><em>Revisando mi proyecto personal más grande, me di cuenta que su accesibilidad deja mucho que desear. Aprovecharé este proceso de rediseño y documentaré el proceso para poder enseñar sobre qué podemos hacer para hacer nuestros sitios más accesibles.</em></p>
+          </section>
+          <section class="blog-section | flow" id="introduccion">
+            <h2 class="sr-only">Introducción </h2>
+            <p data-no-top-margin="true">No tengo tantos proyectos en mi repositorio de GitHub, pero uno de los que me siento más orgulloso de hacer es <a class="link" href="https://itscrisdiaz.github.io/analizador-financiero/" target="_blank" rel="noopener noreferrer">este analizador financiero</a>. Con este logré poner en práctica todo lo que recién había aprendido sobre manipulación del DOM y mejoré mis habilidades con JavaScript (es el proyecto que a la fecha más JavaScript he usado). Eso sin mencionar que pude aplicar lo que sé de contabilidad, lo cual fue extrañamente satisfactorio, considerando mi relación pasivo-agresiva con la contaduría (Historia para otro día).</p>
+            <p>Ahora he aprendido más sobre varios temas de diseño web, y uno de los temas en los que decidí enfocarme es en la accesibilidad web. El otro día revisando mi diseño me di cuenta de que en serio cometí varios errores en ese aspecto. Eso sumado a mis ganas de empezar a hablar más sobre el tema me dio esta idea de matar dos pájaros de un solo tiro: rediseñar mi analizador financiero mientras documento mi proceso.</p>
+            <p>Probablemente no sepas qué es un analizador financiero, así que antes de hablar de las fallas de accesibilidad que cometí en la elaboración de este, permíteme darte una guía rápida de cómo funciona.</p>
+          </section>
+          <nav class="blog-section | flow" aria-labelledby="content-title">
+            <h2 id="content-title">Tabla de contenido</h2>
+            <ol>
+              <li><a class="link" href="#guia-proyecto">Guía por el proyecto</a></li>
+              <li><a class="link" href="#fallos-accesibilidad">Fallos de accesibilidad</a></li>
+              <li><a class="link" href="#lista-articulos">Lista de artículos</a></li>
+            </ol>
+          </nav>
+          <section class="blog-section | flow" id="guia-proyecto">
+            <h2>Guía por el proyecto</h2>
+            <p>Un analizador financiero lo que hace es usar la información financiera de una empresa (o a nivel personal) para realizar una serie de cálculos que indican su estado financiero en rubros como liquidez (su capacidad de pago de deudas), endeudamiento, rentabilidad y eficiencia. Pueden verlo en funcionamiento aquí, pero voy a hablar un poco de cómo funciona:</p>
+            <ul class="flow">
+              <li>El proyecto está dividido en cinco secciones en total: 3 de diligenciamiento de datos (activos, pasivos y patrimonios y estado de resultados) una sección que genera un resumen de los datos ingresados y, por último, una sección con el reporte ya generado.</li>
+              <li>En la parte superior se puede ver una barra que va marcando el progreso y en qué sección está el usuario.</li>
+              <li>En caso de no saber qué tipo de valor se agrega en cada recuadro, el usuario puede hacer clic en el botón de ayuda que abrirá un modal con la información necesaria.</li>
+              <li>Así mismo, si necesita corregirse información en secciones anteriores después de generar el resumen, al hacer clic en "Corregir información" se abrirá otro modal que permite regresarse a alguna de las partes.</li>
+            </ul>
+            <p>Este analizador financiero funciona bien en teoría, pero cuando lo examinas desde los lentes de la accesibilidad web vas a ver que hay muchos fallos importantes. Creé este proyecto en un momento donde no conocía mucho del tema, así que es medianamente entendible que cometiera esos fallos. Veamos un poco más en detalle dichos fallos.</p>
+          </section>
+          <section class="blog-section | flow" id="fallos-accesibilidad">
+            <h2>Fallos de accesibilidad</h2>
+            <p>Dicho todo esto ¿qué fallos tiene este sitio en términos de accesibilidad? Hay bastantes, desde fallos en navegación de teclado, errores de semántica en el HTML, elementos que al pasar por un lector de pantallas no dan el suficiente contexto al usuario y componentes que no funcionan como deberían. Enlistemos algunos de los problemas de este proyecto:</p>
+            <ul class="flow"> 
+              <li>A pesar de que en la parte superior hay un indicador del paso en el que el usuario va, en un lector de pantalla esto no le va a informar al usuario en qué sección se encuentra.</li>
+              <li>Algunos elementos a pesar de poder ser navegables con teclado no se pueden activar con este (por ejemplo, el botón de cerrar el modal se puede seleccionar con teclado, pero al usar la tecla Enter no funcionará)</li>
+              <li>A pesar de que la tabla de resumen es semánticamente correcta en el sentido de que, si es correcto mostrarla como tabla, la navegación a través de un lector de pantallas no es la ideal.</li>
+              <li>El reporte final no es navegable por teclado.</li>
+              <li>Las opciones del modal en la sección de resumen no se pueden navegar por teclado.</li>
+              <li>En general, un modal tal vez no sea la mejor alternativa en este proyecto para mostrar la información relacionada a la información sobre los ítems del analizador financiero, mucho menos como yo decidí generar la información del modal (pero descuiden, igual los modales tienen espacio en este proyecto)</li>
+              <li>Los botones de información no dan el suficiente contexto a usuarios de lectores de pantalla, además de ser muy pequeños, lo que puede generar inconvenientes a usuarios de dispositivos touch.</li>
+            </ul>
+            <p>Eso solo por mencionar lo que he podido notar hasta ahora, puede que note muchos más errores por el camino. Mi objetivo es rediseñar este proyecto enfocándome principalmente en hacerlo más accesible. Para esto voy a ir pasando por cada uno de los lenguajes que usamos para el desarrollo web.</p>
+            <h3>HTML</h3>
+            <p>HTML es la capa más robusta de nuestro sitio, y en temas de accesibilidad es muy importante, tanto que me creería que podría llevar más de una entrada de blog cubriendo el marcado de cada componente para hacerlo accesible.</p>
+            <p>Quiero revisar cada componente de este sitio y crear una estructura accesible usando HTML semántico y los roles y estados que WAI-ARIA nos ofrece (<span lang="en">Web Accesible Iniciative - Accesible Rich Internet Applications por sus siglas en inglés</span>) Una vez con esto hecho tenemos una buena parte del trabajo hecha para hacer nuestro contenido accesible.</p>
+            <h3>CSS </h3>
+            <p>Después de crear una estructura sólida en el sitio, usaré CSS para agregar varios detalles de un contenido accesible: estado de focus de elementos, ocultar elementos de forma visual (pero no para tecnología asistida) manejo de contraste, tamaño de elementos interactivos y demás.</p>
+            <p>CSS es importante también en temas de accesibilidad porque varias de sus medias queries están relacionadas con respetar las preferencias de usuarios, y eso es algo que tendremos muy en mente con dos situaciones en concreto: animaciones, esquema de colores (también conocido como el modo claro y oscuro) al momento del rediseño. Adicionalmente, adaptaré este proyecto para hacerlo amigable con algo que no muchos desarrolladores tienen en mente: temas de alto contraste. Siendo concretos, tener en cuenta un conjunto de prácticas para hacer que este sitio se vea bien si el usuario ve este sitio con estos temas.</p>
+            <h3>JavaScript </h3>
+            <p>Ya entre HTML y CSS tenemos adelantada la mayor parte del trabajo para hacer el contenido accesible, pero aparte de lo obvio (agregarla la funcionalidad al diseño) usaremos JavaScript para terminar de pulir ciertos detalles. Principalmente para cambiar el estado de aria de ciertos elementos, pero también tendrá otros usos (como permitirle controlar al usuario que tema ver) lo que termina de añadir los detalles finales para hacer a este proyecto más accesible.</p>
+            <section class="blog-section | flow" id="lista-articulos">
+              <h2>Lista de artículos</h2>
+            </section>
+            <p>A medida que trabaje en estas entradas de blog, añadiré aquí el link de cada parte junto con una lista de los temas que toco. Espero que todos estos temas que voy a tocar te sean útiles y te den una idea de como implementar acciones en tu sitio que lo hagan más accesibles.</p>
+            <ul class="flow"> 
+              <li>Rediseño de analizador financiero. Parte 1: HTML (En proceso)</li>
+              <li>Rediseño de analizador financiero. Parte 2: CSS (En proceso)</li>
+              <li>Rediseño de analizador financiero. Parte 3: JavaScript (En proceso)</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </main>
+    <footer class="footer | black-bg | flow"><img class="footer-logo" src="../src/img/images/logo.png" alt="Logo" width="60" height="60"/>
+      <div class="text-container | flow">
+        <p>Hecho con <span class="icon | heart"></span> de Cristian.</p>
+        <p>Copyright 2021 - Todos los derechos reservados.</p>
+      </div>
+      <div class="icon-container | flow"><a target="_blank" href="https://github.com/ItsCrisDiaz" rel="noopener"><img class="icon" alt="Sitio de GitHub de Cristian Díaz" src="../src/img/icons/icon-github.png" width="24" height="24"/></a><a target="_blank" href="https://www.linkedin.com/in/crisdiaz384/" rel="noopener"><img class="icon" alt="Perfil de LinkedIn de Cristian Díaz" src="../src/img/icons/linkedin-logo.png" width="24" height="24"/></a><a target="_blank" href="https://twitter.com/ItsCrisDiaz" rel="noopener"><img class="icon" alt="Cuenta de Twiiter de Cristian Díaz" src="../src/img/icons/twitter-icon.png" width="24" height="24"/></a></div>
+    </footer>
+    <script src="/src/js/utils/blogContentAnimation.js"></script>
+    <script src="/blog/src/javascript/prism.js"></script>
+  </body>
+</html>
