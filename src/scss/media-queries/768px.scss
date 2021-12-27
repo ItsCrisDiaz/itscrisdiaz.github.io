@@ -72,6 +72,35 @@
     }
   }
 
+  .blog {
+    &-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Blog entry block
+
+  .blog-card {
+    height: calc(100% + 2.4rem);
+    max-width: 50rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    & figure {
+      align-self: start;
+    }
+
+    & > div {
+      height: 100%;
+      align-self: start;
+    }
+
+    & .button-normal {
+      margin-top: auto;
+      margin-bottom: 2.4rem;
+    }
+  }
+
   .button-container {
     --vertical-flow-space: 0;
     margin-top: 4.8rem;
